@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Engineering Blog</title>
+    <link>https://www.betterment.com/engineering</link>
+    <description>We're engineering Betterment to become a top-notch fintech company. High quality code. Beautiful, practical design. Nerd out with us on all things tech.</description>
+    <language>en</language>
+    <pubDate>Tue, 07 Jun 2022 22:13:31 GMT</pubDate>
+    <dc:date>2022-06-07T22:13:31Z</dc:date>
+    <dc:language>en</dc:language>
+    <item>
+      <title>End-to-end-ish tests using fake HTTP in Flutter</title>
+      <link>https://www.betterment.com/engineering/end-to-end-ish-tests-using-fake-http-in-flutter</link>
+      <description>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/end-to-end-ish-tests-using-fake-http-in-flutter" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/Featured-images/feature-image-fake-http-flutter.jpg" alt="End-to-end-ish tests using fake HTTP in Flutter" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;We write tests in order to prove our features work as intended and we run those tests consistently to prove that our features don't stop working as intended.&lt;/p&gt;</description>
+      <content:encoded>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/end-to-end-ish-tests-using-fake-http-in-flutter" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/Featured-images/feature-image-fake-http-flutter.jpg" alt="End-to-end-ish tests using fake HTTP in Flutter" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;We write tests in order to prove our features work as intended and we run those tests consistently to prove that our features don't stop working as intended.&lt;/p&gt;  
+&lt;img src="https://track.hubspot.com/__ptq.gif?a=5274572&amp;amp;k=14&amp;amp;r=https%3A%2F%2Fwww.betterment.com%2Fengineering%2Fend-to-end-ish-tests-using-fake-http-in-flutter&amp;amp;bu=https%253A%252F%252Fwww.betterment.com%252Fengineering&amp;amp;bvt=rss" alt="" width="1" height="1" style="min-height:1px!important;width:1px!important;border-width:0!important;margin-top:0!important;margin-bottom:0!important;margin-right:0!important;margin-left:0!important;padding-top:0!important;padding-bottom:0!important;padding-right:0!important;padding-left:0!important; "&gt;</content:encoded>
+      <category>Testing software</category>
+      <pubDate>Wed, 23 Feb 2022 13:55:21 GMT</pubDate>
+      <guid>https://www.betterment.com/engineering/end-to-end-ish-tests-using-fake-http-in-flutter</guid>
+      <dc:date>2022-02-23T13:55:21Z</dc:date>
+      <dc:creator>Sam Moore | Principal Engineer, Betterment</dc:creator>
+    </item>
+    <item>
+      <title>Stability through Randomness</title>
+      <link>https://www.betterment.com/engineering/stability-through-randomness</link>
+      <description>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/stability-through-randomness" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/Featured-images/feature-image-stability-through-randomness-2.png" alt="Stability through Randomness" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;We only recently enabled test randomization and as a result found that some of our tests were failing. Through fixing the tests, we learned lessons that could help others have a less painful migration themselves.&lt;/p&gt;</description>
+      <content:encoded>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/stability-through-randomness" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/Featured-images/feature-image-stability-through-randomness-2.png" alt="Stability through Randomness" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;We only recently enabled test randomization and as a result found that some of our tests were failing. Through fixing the tests, we learned lessons that could help others have a less painful migration themselves.&lt;/p&gt;  
+&lt;img src="https://track.hubspot.com/__ptq.gif?a=5274572&amp;amp;k=14&amp;amp;r=https%3A%2F%2Fwww.betterment.com%2Fengineering%2Fstability-through-randomness&amp;amp;bu=https%253A%252F%252Fwww.betterment.com%252Fengineering&amp;amp;bvt=rss" alt="" width="1" height="1" style="min-height:1px!important;width:1px!important;border-width:0!important;margin-top:0!important;margin-bottom:0!important;margin-right:0!important;margin-left:0!important;padding-top:0!important;padding-bottom:0!important;padding-right:0!important;padding-left:0!important; "&gt;</content:encoded>
+      <category>Testing software</category>
+      <pubDate>Thu, 03 Feb 2022 23:43:36 GMT</pubDate>
+      <author>brandon.trautmann@betterment.com (Brandon Trautmann | Senior Mobile Engineer)</author>
+      <guid>https://www.betterment.com/engineering/stability-through-randomness</guid>
+      <dc:date>2022-02-03T23:43:36Z</dc:date>
+    </item>
+    <item>
+      <title>Finding a Middle Ground Between Screen and UI Testing in Flutter</title>
+      <link>https://www.betterment.com/engineering/flutter-screen-ui-testing</link>
+      <description>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/flutter-screen-ui-testing" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/Featured-images/flutter-screen-ui-testing.png" alt="smartphone held up by hand on gears background" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;We outline the struggles we had testing our flutter app, our approaches to those challenges, and the solutions we arrived at to solve those problems.&lt;/p&gt;</description>
+      <content:encoded>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/flutter-screen-ui-testing" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/Featured-images/flutter-screen-ui-testing.png" alt="smartphone held up by hand on gears background" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;We outline the struggles we had testing our flutter app, our approaches to those challenges, and the solutions we arrived at to solve those problems.&lt;/p&gt;  
+&lt;img src="https://track.hubspot.com/__ptq.gif?a=5274572&amp;amp;k=14&amp;amp;r=https%3A%2F%2Fwww.betterment.com%2Fengineering%2Fflutter-screen-ui-testing&amp;amp;bu=https%253A%252F%252Fwww.betterment.com%252Fengineering&amp;amp;bvt=rss" alt="" width="1" height="1" style="min-height:1px!important;width:1px!important;border-width:0!important;margin-top:0!important;margin-bottom:0!important;margin-right:0!important;margin-left:0!important;padding-top:0!important;padding-bottom:0!important;padding-right:0!important;padding-left:0!important; "&gt;</content:encoded>
+      <category>Testing software</category>
+      <pubDate>Wed, 12 Jan 2022 18:26:10 GMT</pubDate>
+      <author>caleb.donoho@betterment.com (Caleb Donoho | Software Engineer)</author>
+      <guid>https://www.betterment.com/engineering/flutter-screen-ui-testing</guid>
+      <dc:date>2022-01-12T18:26:10Z</dc:date>
+    </item>
+    <item>
+      <title>Why (And How) Betterment Is Using Julia</title>
+      <link>https://www.betterment.com/engineering/why-betterment-is-using-julia</link>
+      <description>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/why-betterment-is-using-julia" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/featured-images/goal-card-on-track-retire-in-the-mountains.png" alt="Retirement goal next to on track graph" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Betterment is using Julia to solve our own version of the “two-language problem."&lt;/p&gt;</description>
+      <content:encoded>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/why-betterment-is-using-julia" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/featured-images/goal-card-on-track-retire-in-the-mountains.png" alt="Retirement goal next to on track graph" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Betterment is using Julia to solve our own version of the “two-language problem."&lt;/p&gt;  
+&lt;img src="https://track.hubspot.com/__ptq.gif?a=5274572&amp;amp;k=14&amp;amp;r=https%3A%2F%2Fwww.betterment.com%2Fengineering%2Fwhy-betterment-is-using-julia&amp;amp;bu=https%253A%252F%252Fwww.betterment.com%252Fengineering&amp;amp;bvt=rss" alt="" width="1" height="1" style="min-height:1px!important;width:1px!important;border-width:0!important;margin-top:0!important;margin-bottom:0!important;margin-right:0!important;margin-left:0!important;padding-top:0!important;padding-bottom:0!important;padding-right:0!important;padding-left:0!important; "&gt;</content:encoded>
+      <pubDate>Sun, 14 Nov 2021 22:51:19 GMT</pubDate>
+      <guid>https://www.betterment.com/engineering/why-betterment-is-using-julia</guid>
+      <dc:date>2021-11-14T22:51:19Z</dc:date>
+      <dc:creator>Dan Felicetta | Former Staff Engineer, Betterment</dc:creator>
+    </item>
+    <item>
+      <title>Introducing “Delayed”: Resilient Background Jobs on Rails</title>
+      <link>https://www.betterment.com/engineering/delayed-resilient-background-jobs-on-rails</link>
+      <description>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/delayed-resilient-background-jobs-on-rails" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/featured-images/portfolio-option-icons.png" alt="Various icons showing pie charts" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;In the past 24 hours, a Ruby on Rails application at Betterment performed somewhere on the order of 10 million asynchronous tasks.&lt;/p&gt;</description>
+      <content:encoded>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/delayed-resilient-background-jobs-on-rails" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/featured-images/portfolio-option-icons.png" alt="Various icons showing pie charts" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;In the past 24 hours, a Ruby on Rails application at Betterment performed somewhere on the order of 10 million asynchronous tasks.&lt;/p&gt;  
+&lt;img src="https://track.hubspot.com/__ptq.gif?a=5274572&amp;amp;k=14&amp;amp;r=https%3A%2F%2Fwww.betterment.com%2Fengineering%2Fdelayed-resilient-background-jobs-on-rails&amp;amp;bu=https%253A%252F%252Fwww.betterment.com%252Fengineering&amp;amp;bvt=rss" alt="" width="1" height="1" style="min-height:1px!important;width:1px!important;border-width:0!important;margin-top:0!important;margin-bottom:0!important;margin-right:0!important;margin-left:0!important;padding-top:0!important;padding-bottom:0!important;padding-right:0!important;padding-left:0!important; "&gt;</content:encoded>
+      <category>Operating software</category>
+      <pubDate>Tue, 07 Sep 2021 04:00:00 GMT</pubDate>
+      <guid>https://www.betterment.com/engineering/delayed-resilient-background-jobs-on-rails</guid>
+      <dc:date>2021-09-07T04:00:00Z</dc:date>
+      <dc:creator>Nathan Griffith | Senior Staff Engineer, Betterment</dc:creator>
+    </item>
+    <item>
+      <title>Focusing on What Matters: Using SLOs to Pursue User Happiness</title>
+      <link>https://www.betterment.com/engineering/service-level-objectives-slo</link>
+      <description>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/service-level-objectives-slo" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/featured-images/shield-armor-lightbulb.png" alt="Security shield with light bulb on front" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Proper reliability is the greatest operational requirement for any service. If the service doesn’t work as intended, no user (or engineer) will be happy. This is where SLOs come in.&lt;/p&gt;</description>
+      <content:encoded>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/service-level-objectives-slo" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/featured-images/shield-armor-lightbulb.png" alt="Security shield with light bulb on front" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Proper reliability is the greatest operational requirement for any service. If the service doesn’t work as intended, no user (or engineer) will be happy. This is where SLOs come in.&lt;/p&gt;  
+&lt;img src="https://track.hubspot.com/__ptq.gif?a=5274572&amp;amp;k=14&amp;amp;r=https%3A%2F%2Fwww.betterment.com%2Fengineering%2Fservice-level-objectives-slo&amp;amp;bu=https%253A%252F%252Fwww.betterment.com%252Fengineering&amp;amp;bvt=rss" alt="" width="1" height="1" style="min-height:1px!important;width:1px!important;border-width:0!important;margin-top:0!important;margin-bottom:0!important;margin-right:0!important;margin-left:0!important;padding-top:0!important;padding-bottom:0!important;padding-right:0!important;padding-left:0!important; "&gt;</content:encoded>
+      <category>Operating software</category>
+      <pubDate>Wed, 04 Aug 2021 04:00:00 GMT</pubDate>
+      <guid>https://www.betterment.com/engineering/service-level-objectives-slo</guid>
+      <dc:date>2021-08-04T04:00:00Z</dc:date>
+      <dc:creator>Sophia Russell | Staff Engineer, Betterment</dc:creator>
+    </item>
+    <item>
+      <title>Finding and Preventing Rails Authorization Bugs</title>
+      <link>https://www.betterment.com/engineering/finding-and-preventing-rails-authorization-bugs</link>
+      <description>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/finding-and-preventing-rails-authorization-bugs" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/featured-images/road-path-finish-flag.jpg" alt="Road leading to finish flag" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;This article walks through finding and fixing common Rails authorization bugs.&lt;/p&gt;</description>
+      <content:encoded>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/finding-and-preventing-rails-authorization-bugs" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/featured-images/road-path-finish-flag.jpg" alt="Road leading to finish flag" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;This article walks through finding and fixing common Rails authorization bugs.&lt;/p&gt;  
+&lt;img src="https://track.hubspot.com/__ptq.gif?a=5274572&amp;amp;k=14&amp;amp;r=https%3A%2F%2Fwww.betterment.com%2Fengineering%2Ffinding-and-preventing-rails-authorization-bugs&amp;amp;bu=https%253A%252F%252Fwww.betterment.com%252Fengineering&amp;amp;bvt=rss" alt="" width="1" height="1" style="min-height:1px!important;width:1px!important;border-width:0!important;margin-top:0!important;margin-bottom:0!important;margin-right:0!important;margin-left:0!important;padding-top:0!important;padding-bottom:0!important;padding-right:0!important;padding-left:0!important; "&gt;</content:encoded>
+      <category>Testing software</category>
+      <pubDate>Thu, 27 May 2021 04:00:00 GMT</pubDate>
+      <guid>https://www.betterment.com/engineering/finding-and-preventing-rails-authorization-bugs</guid>
+      <dc:date>2021-05-27T04:00:00Z</dc:date>
+      <dc:creator>OMAR | Staff Security Engineer, Betterment</dc:creator>
+    </item>
+    <item>
+      <title>Using Targeted Universalism To Build Inclusive Features</title>
+      <link>https://www.betterment.com/engineering/build-inclusive-features</link>
+      <description>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/build-inclusive-features" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/featured-images/humans-under-umbrella.png" alt="Using Targeted Universalism To Build Inclusive Features" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;The best products are inclusive at every stage of the design and engineering process. Here's how we turned a request for more inclusion into a feature all Betterment customers can benefit from. &lt;/p&gt;</description>
+      <content:encoded>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/build-inclusive-features" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/featured-images/humans-under-umbrella.png" alt="Using Targeted Universalism To Build Inclusive Features" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;The best products are inclusive at every stage of the design and engineering process. Here's how we turned a request for more inclusion into a feature all Betterment customers can benefit from. &lt;/p&gt;  
+&lt;img src="https://track.hubspot.com/__ptq.gif?a=5274572&amp;amp;k=14&amp;amp;r=https%3A%2F%2Fwww.betterment.com%2Fengineering%2Fbuild-inclusive-features&amp;amp;bu=https%253A%252F%252Fwww.betterment.com%252Fengineering&amp;amp;bvt=rss" alt="" width="1" height="1" style="min-height:1px!important;width:1px!important;border-width:0!important;margin-top:0!important;margin-bottom:0!important;margin-right:0!important;margin-left:0!important;padding-top:0!important;padding-bottom:0!important;padding-right:0!important;padding-left:0!important; "&gt;</content:encoded>
+      <category>Inclusivity</category>
+      <pubDate>Tue, 10 Nov 2020 05:00:00 GMT</pubDate>
+      <guid>https://www.betterment.com/engineering/build-inclusive-features</guid>
+      <dc:date>2020-11-10T05:00:00Z</dc:date>
+      <dc:creator>Jesse Harrelson | Mobile Engineering Manager, Betterment</dc:creator>
+    </item>
+    <item>
+      <title>Guidelines for Testing Rails Applications</title>
+      <link>https://www.betterment.com/engineering/guidelines-for-testing-rails-applications</link>
+      <description>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/guidelines-for-testing-rails-applications" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/featured-images/binoculars.jpg" alt="Guidelines for Testing Rails Applications" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Discusses the different responsibilities of model, request, and system specs, and other high level guidelines for writing specs using RSpec &amp;amp; Capybara.&lt;/p&gt;</description>
+      <content:encoded>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/guidelines-for-testing-rails-applications" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/featured-images/binoculars.jpg" alt="Guidelines for Testing Rails Applications" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Discusses the different responsibilities of model, request, and system specs, and other high level guidelines for writing specs using RSpec &amp;amp; Capybara.&lt;/p&gt;  
+&lt;img src="https://track.hubspot.com/__ptq.gif?a=5274572&amp;amp;k=14&amp;amp;r=https%3A%2F%2Fwww.betterment.com%2Fengineering%2Fguidelines-for-testing-rails-applications&amp;amp;bu=https%253A%252F%252Fwww.betterment.com%252Fengineering&amp;amp;bvt=rss" alt="" width="1" height="1" style="min-height:1px!important;width:1px!important;border-width:0!important;margin-top:0!important;margin-bottom:0!important;margin-right:0!important;margin-left:0!important;padding-top:0!important;padding-bottom:0!important;padding-right:0!important;padding-left:0!important; "&gt;</content:encoded>
+      <category>Testing software</category>
+      <pubDate>Thu, 24 Oct 2019 04:00:00 GMT</pubDate>
+      <guid>https://www.betterment.com/engineering/guidelines-for-testing-rails-applications</guid>
+      <dc:date>2019-10-24T04:00:00Z</dc:date>
+      <dc:creator>Greg Sadowski | Staff Engineer, Betterment</dc:creator>
+    </item>
+    <item>
+      <title>WebValve – The Magic You Need for HTTP Integration</title>
+      <link>https://www.betterment.com/engineering/webvalve-rails-http-integration</link>
+      <description>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/webvalve-rails-http-integration" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/featured-images/shield-armor-lightbulb.png" alt="Lightbulb on a shield of armor" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Struggling with HTTP integrations locally? Use WebValve to define HTTP service fakes and toggle between real and fake services in non-production environments.&lt;/p&gt;</description>
+      <content:encoded>&lt;div class="hs-featured-image-wrapper"&gt; 
+ &lt;a href="https://www.betterment.com/engineering/webvalve-rails-http-integration" title="" class="hs-featured-image-link"&gt; &lt;img src="https://www.betterment.com/hubfs/Graphics/featured-images/shield-armor-lightbulb.png" alt="Lightbulb on a shield of armor" class="hs-featured-image" style="width:auto !important; max-width:50%; float:left; margin:0 15px 15px 0;"&gt; &lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Struggling with HTTP integrations locally? Use WebValve to define HTTP service fakes and toggle between real and fake services in non-production environments.&lt;/p&gt;  
+&lt;img src="https://track.hubspot.com/__ptq.gif?a=5274572&amp;amp;k=14&amp;amp;r=https%3A%2F%2Fwww.betterment.com%2Fengineering%2Fwebvalve-rails-http-integration&amp;amp;bu=https%253A%252F%252Fwww.betterment.com%252Fengineering&amp;amp;bvt=rss" alt="" width="1" height="1" style="min-height:1px!important;width:1px!important;border-width:0!important;margin-top:0!important;margin-bottom:0!important;margin-right:0!important;margin-left:0!important;padding-top:0!important;padding-bottom:0!important;padding-right:0!important;padding-left:0!important; "&gt;</content:encoded>
+      <category>Operating software</category>
+      <pubDate>Fri, 26 Apr 2019 04:00:00 GMT</pubDate>
+      <guid>https://www.betterment.com/engineering/webvalve-rails-http-integration</guid>
+      <dc:date>2019-04-26T04:00:00Z</dc:date>
+      <dc:creator>Sam Moore | Principal Engineer, Betterment</dc:creator>
+    </item>
+  </channel>
+</rss>

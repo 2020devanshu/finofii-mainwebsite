@@ -1,0 +1,85 @@
+.blog-post-previews .bt-row .bt-ContentGrid-item {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+.blog-post-previews .bt-row .bt-ContentGrid-item.per-row-count-3 {
+  margin: auto !important;
+  max-width: 1020px;
+  width: 100%;
+}
+.blog-post-previews .bt-row .bt-ContentGrid-item .item {
+  text-decoration: none;
+  width: 100%;
+}
+.blog-post-previews .bt-row .bt-ContentGrid-item .item .item-title {
+  margin-bottom: 1.2rem;
+}
+.blog-post-previews .bt-row .bt-ContentGrid-item .item:hover .item-title {
+  color: #1d6ae5;
+}
+.blog-post-previews .bt-row .bt-ContentGrid-item .item .item-image {
+  margin-bottom: 2.4rem;
+  width: 100%;
+}
+@media (min-width: 700px) {
+  .blog-post-previews .bt-row .bt-ContentGrid-item .item .item-image {
+    height: 16.2rem;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center;
+    object-position: center;
+  }
+}
+.blog-post-previews .bt-row .bt-ContentGrid-item .item.has-read-time {
+  padding-bottom: 3rem;
+  position: relative;
+}
+.blog-post-previews .bt-row .bt-ContentGrid-item .item-read-time {
+  bottom: 0;
+  left: 0;
+  margin-top: 1.2rem;
+  position: absolute;
+  width: 100%;
+}
+@media (min-width: 964px) {
+  .blog-post-previews .bt-row .bt-ContentGrid-item.adds-margin {
+    margin: 0.1px;
+  }
+  .blog-post-previews .bt-row.per-row-count-2 .item .item-image {
+    height: 27.4rem;
+  }
+}
+.blog-post-previews .bt-row.item-offset-3.per-row-count-3.adds-margin {
+  margin: 0.1px;
+}
+@media (max-width: 963px) {
+  .blog-post-previews.mobile-horizontal-scroll .bt-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .blog-post-previews.mobile-horizontal-scroll .bt-row {
+    display: block;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: none;
+    overflow: scroll;
+    padding-bottom: 4rem;
+    white-space: nowrap;
+    width: 100%;
+  }
+  .blog-post-previews.mobile-horizontal-scroll .bt-row .bt-ContentGrid-item {
+    display: inline-block;
+    max-width: 33rem;
+    min-width: 33rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    vertical-align: top;
+    white-space: normal;
+  }
+}
+@media (max-width: 963px) and (max-width: 480px) {
+  .blog-post-previews.mobile-horizontal-scroll .bt-row .bt-ContentGrid-item {
+    max-width: 27rem;
+    min-width: auto;
+  }
+}

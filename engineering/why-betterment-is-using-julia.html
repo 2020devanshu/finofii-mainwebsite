@@ -1,0 +1,1491 @@
+<!doctype html><html lang="en">
+<!-- Mirrored from www.betterment.com/engineering/why-betterment-is-using-julia by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Sep 2022 12:43:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head data-ipt="Why (And How) Betterment Is Using Julia">
+    <meta charset="utf-8">
+    <title>Why (And How) Betterment Is Using Julia</title>
+    <link rel="shortcut icon" href="../hubfs/Graphics/shared-assets/Favicon-navy-circle.png">
+    <meta name="description" content="Betterment is using Julia to solve our own version of the “two-language problem.&quot;">
+    
+    
+    
+
+    <script>
+      window.TT = "ewogICAgInNwbGl0cyI6e30sCiAgICAiZXhwZXJpZW5jZVNhbXBsaW5nV2VpZ2h0IjoxMDAsCiAgICAidXJsIjoiaHR0cHM6XC9cL3R0LmJldHRlcm1lbnQuY29tIiwKICAgICJjb29raWVEb21haW4iOiIuYmV0dGVybWVudC5jb20iLAogICAgImVuY29kZWRBdCI6IjIwMjEwNzEzMTU1MjAxIgp9"
+    </script>
+    
+    
+    
+    <meta property="og:description" content="Betterment is using Julia to solve our own version of the “two-language problem.&quot;">
+    <meta property="og:title" content="Why (And How) Betterment Is Using Julia">
+    <meta name="twitter:description" content="Betterment is using Julia to solve our own version of the “two-language problem.&quot;">
+    <meta name="twitter:title" content="Why (And How) Betterment Is Using Julia">
+
+    
+
+    
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.betterment.com/engineering/why-betterment-is-using-julia"
+      },
+      "headline": "Why (And How) Betterment Is Using Julia",
+      "image": ["https://www.betterment.com/hubfs/Graphics/featured-images/goal-card-on-track-retire-in-the-mountains.png"],
+      "datePublished": "Sep. 29, 2022",
+      "dateModified": "Nov 14, 2021 5:51:19 PM",
+      "author": {
+          "@type": "Person",
+          "name": "Dan Felicetta",
+          "url": "www.betterment.com/engineering/author/dan-felicetta"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Betterment",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.betterment.com/hubfs/Graphics/shared-assets/betterment-logo.png"
+        }
+      }
+    }
+  </script>
+  
+    <style>
+a.cta_button{-moz-box-sizing:content-box !important;-webkit-box-sizing:content-box !important;box-sizing:content-box !important;vertical-align:middle}.hs-breadcrumb-menu{list-style-type:none;margin:0px 0px 0px 0px;padding:0px 0px 0px 0px}.hs-breadcrumb-menu-item{float:left;padding:10px 0px 10px 10px}.hs-breadcrumb-menu-divider:before{content:'›';padding-left:10px}.hs-featured-image-link{border:0}.hs-featured-image{float:right;margin:0 0 20px 20px;max-width:50%}@media (max-width: 568px){.hs-featured-image{float:none;margin:0;width:100%;max-width:100%}}.hs-screen-reader-text{clip:rect(1px, 1px, 1px, 1px);height:1px;overflow:hidden;position:absolute !important;width:1px}
+</style>
+
+<link rel="stylesheet" href="../hs-fs/hub/5274572/hub_generated/template_assets/49667076004/1664300040824/betterment-theme/css/main.min.css">
+<link rel="stylesheet" href="../hs-fs/hub/5274572/hub_generated/template_assets/54140855578/1662668619796/betterment-theme/js/custom-scripts/navigation.min.css">
+<link rel="stylesheet" href="../hs-fs/hub/5274572/hub_generated/module_assets/64614019605/1664467641345/module_64614019605_toast_banner_global.min.css">
+<link rel="stylesheet" href="../hs-fs/hub/5274572/hub_generated/template_assets/57078106260/1657573877356/betterment-theme/templates/engineering_blog/blog.min.css">
+<link rel="stylesheet" href="../hs-fs/hub/5274572/hub_generated/module_assets/55330962055/1664467632871/module_55330962055_blog_post_banner_cta.min.css">
+<link rel="stylesheet" href="../hs-fs/hub/5274572/hub_generated/module_assets/53653099091/1664467639907/module_53653099091_social_share.min.css">
+<link rel="stylesheet" href="../hs-fs/hub/5274572/hub_generated/module_assets/57076926612/1664467644356/module_57076926612_post_bottom_section.min.css">
+<link rel="stylesheet" href="../hs-fs/hub/5274572/hub_generated/module_assets/53648998413/1664467636015/module_53648998413_footer_disclosures.min.css">
+<link rel="stylesheet" href="../hs-fs/hub/5274572/hub_generated/template_assets/54140855579/1645062324227/betterment-theme/js/custom-scripts/footer.min.css">
+    
+
+    
+<!--  Added by GoogleAnalytics integration -->
+<script>
+var _hsp = window._hsp = window._hsp || [];
+_hsp.push(['addPrivacyConsentListener', function(consent) { if (consent.allowed || (consent.categories && consent.categories.analytics)) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
+  ga('create','UA-10133968-1','auto');
+  ga('send','pageview');
+}}]);
+</script>
+
+<!-- /Added by GoogleAnalytics integration -->
+
+<!--  Added by GoogleTagManager integration -->
+<script>
+var _hsp = window._hsp = window._hsp || [];
+
+var hsLoadGtm = function loadGtm() {
+    if(window._hsGtmLoadOnce) {
+      return;
+    }
+
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5RSQL7');
+
+    window._hsGtmLoadOnce = true;
+};
+
+var useGoogleConsentMode = true;
+
+if (!useGoogleConsentMode){
+    _hsp.push(['addPrivacyConsentListener', function(consent){
+      if(consent.allowed || (consent.categories && consent.categories.analytics)){
+        hsLoadGtm();
+      }
+  }]);
+} else{
+    if(!window._hsGoogleConsentRunOnce){
+      window._hsGoogleConsentRunOnce=true;
+
+      window.dataLayer=window.dataLayer||[];
+      function gtag(){dataLayer.push(arguments);}
+
+      gtag('consent','default',{
+        'ad_storage':'denied',
+        'analytics_storage':'denied'
+      });
+
+      gtag('set','developer_id.dZTQ1Zm',true);
+
+      _hsp.push(['addPrivacyConsentListener',function(consent){
+      var hasAnalyticsConsent=consent&&(consent.allowed||(consent.categories&&consent.categories.analytics));
+      var hasAdsConsent=consent&&(consent.allowed||(consent.categories&&consent.categories.advertisement));
+
+      gtag('consent','update',{
+        'ad_storage':hasAdsConsent?'granted':'denied',
+        'analytics_storage':hasAnalyticsConsent?'granted':'denied'
+      });
+    }]);
+  }
+
+  hsLoadGtm();
+}
+</script>
+
+<!-- /Added by GoogleTagManager integration -->
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:image" content="https://www.betterment.com/hubfs/Graphics/featured-images/goal-card-on-track-retire-in-the-mountains.png#keepProtocol">
+<meta property="og:image:width" content="1100">
+<meta property="og:image:height" content="550">
+<meta property="og:image:alt" content="Retirement goal next to on track graph">
+<meta name="twitter:image" content="https://www.betterment.com/hubfs/Graphics/featured-images/goal-card-on-track-retire-in-the-mountains.png#keepProtocol">
+<meta name="twitter:image:alt" content="Retirement goal next to on track graph">
+
+<meta property="og:url" content="https://www.betterment.com/engineering/why-betterment-is-using-julia">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="canonical" href="why-betterment-is-using-julia.html">
+
+<meta property="og:type" content="article">
+<link rel="alternate" type="application/rss+xml" href="rss.xml">
+<meta name="twitter:domain" content="www.betterment.com">
+<script src="../../platform.linkedin.com/in.js" type="text/javascript">
+    lang: en_US
+</script>
+
+<meta http-equiv="content-language" content="en">
+
+
+
+
+
+
+    
+      
+            
+  <meta name="generator" content="HubSpot"></head>
+
+  
+  
+    
+    
+    
+  
+
+  <body class="engineering_blog blog_post" data-contentid="59718877846" data-contentabid="">
+<!--  Added by GoogleTagManager integration -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RSQL7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- /Added by GoogleTagManager integration -->
+
+    
+    
+    
+    
+    
+
+    <div class="body-wrapper   hs-content-id-59718877846 hs-blog-post hs-blog-id-57138234906"> 
+      
+  
+
+
+      
+
+      
+  
+  
+  <div class="bt-CourtesyNav bt-section bg-grey90 white">
+    <div class="bt-container">
+      <a href="#main-content" class="header__skip" data-interaction-listener-registered="true">Skip to main content</a>
+      <div class="flex-wrap flex-middle u-flexJustifyEnd">
+        
+  
+  
+  <nav class="bt-CourtesyNav-list" data-behavior-large-screen-nav="" aria-label="courtesy navigation">
+    <ul class="flex-wrap flex-middle u-flexJustifyEnd">
+      
+        
+          <li id="menu-item-Individuals">
+            <a href="../index.html" data-event="Individuals" data-track-event="ElementClicked" data-track-name="Individuals" data-track-module="CourtesyNav">Individuals</a>
+          </li>
+        
+      
+        
+          <li id="menu-item-Employers">
+            <a href="../work.html" data-event="Employers" data-track-event="ElementClicked" data-track-name="Employers" data-track-module="CourtesyNav">Employers</a>
+          </li>
+        
+      
+        
+          <li id="menu-item-Advisors">
+            <a href="../advisors.html" data-event="Advisors" data-track-event="ElementClicked" data-track-name="Advisors" data-track-module="CourtesyNav">Advisors</a>
+          </li>
+        
+      
+    </ul>
+  </nav>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-header-wrap">
+    <div class="nav-header-wrap-children">
+      <div id="hs_cos_wrapper_module_1633637126" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+<div class="bt-Nav-wrap careers-nav">
+      
+  
+
+  
+  
+  
+    
+    
+  
+    
+    
+      
+      
+      
+      
+    
+  
+    
+    
+      
+      
+      
+      
+    
+  
+    
+    
+      
+      
+        
+            
+          
+            
+            
+          
+        
+        
+            
+          
+            
+            
+          
+        
+        
+      
+      
+      
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <header>
+    <div class="bt-Nav bt-section ptb0  ">
+      <div class="bt-container">
+        <div class="flex-wrap flex-middle">
+    
+          
+          <a href="../index.html" class="bt-Nav-logoContainer" data-track-event="ElementClicked" data-track-name="Logo" data-track-module="TopNav" data-interaction-listener-registered="true">
+            <span class="bt-Logo"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 538 74" aria-label="Betterment Logo" role="img" ">
+  <title>Betterment Logo</title>
+  <path d="M489.013 23.5871C486.234 23.5506 483.488 24.2211 481.019 25.5394C478.55 26.8577 476.432 28.7834 474.853 31.1468V24.8723H463.886V67.4286H474.853V46.5996C474.853 38.5952 478.533 33.8193 484.696 33.8193C490.128 33.8193 494.015 37.5369 494.015 43.7491V67.4286H504.9V41.3701C504.904 30.2529 498.409 23.5871 489.013 23.5871Z" />
+  <path d="M380.618 67.3975H369.05V43.7204C369.05 37.8734 365.39 33.7916 360.139 33.7916C353.585 33.7916 349.674 38.567 349.674 46.5705V67.3975H338.014V24.8588H349.674V31.146C351.351 28.7827 353.6 26.857 356.224 25.5387C358.848 24.2204 361.765 23.5502 364.718 23.5872C371.405 23.5872 376.451 26.9308 378.925 32.5689C380.68 29.7955 383.143 27.5108 386.075 25.9369C389.007 24.363 392.308 23.5535 395.657 23.5872C405.318 23.5872 411.557 30.5636 411.557 41.3727V67.4286H399.994V43.7515C399.994 37.9045 396.334 33.8228 391.079 33.8228C384.529 33.8228 380.613 38.5982 380.613 46.6017L380.618 67.3975Z" />
+  <path d="M143.033 38.7458L140.543 37.7475L142.924 36.5319C143.203 36.3899 149.575 32.9826 149.575 24.7837C149.575 17.8626 143.423 10.8571 131.662 10.8571H103.243V67.4286H131.717C150.386 67.4286 151.329 54.6111 151.329 52.0423C151.333 42.193 143.116 38.7857 143.033 38.7458ZM114.999 20.1652H129.048C132.903 20.1652 137.055 22.4145 137.055 27.3614C137.055 32.1884 133.026 34.7173 129.048 34.7173H114.999V20.1652ZM130.888 58.1205H114.999V43.5684H130.888C136.093 43.5684 138.813 47.2685 138.813 50.9287C138.813 55.1036 135.48 58.1294 130.888 58.1294V58.1205Z" />
+  <path d="M199.414 46.2299C199.161 32.9014 189.991 23.5857 177.106 23.5857C164.026 23.5857 154.159 33.3165 154.159 46.221C154.082 52.127 156.323 57.8338 160.414 62.1474C164.596 66.4726 170.593 68.8429 177.115 68.8429C183.637 68.8429 189.634 66.4637 193.816 62.1474C196.063 59.8026 197.763 57.0007 198.794 53.9387H188.226C186.063 57.7372 181.985 60.0405 177.115 60.0405C171.507 60.0405 166.981 56.108 165.737 50.024L165.433 48.551H199.414V46.2299ZM166.053 40.7887C166.727 38.4138 168.174 36.3234 170.171 34.84C172.169 33.3565 174.605 32.5624 177.106 32.58C182.379 32.58 186.321 35.651 187.697 40.7887H166.053Z" />
+  <path d="M304.071 46.2299C303.826 32.9014 294.944 23.5857 282.462 23.5857C269.788 23.5857 260.23 33.3165 260.23 46.221C260.158 52.1266 262.328 57.8325 266.289 62.1474C270.34 66.4726 276.149 68.8429 282.471 68.8429C288.793 68.8429 294.597 66.4637 298.648 62.1474C300.825 59.8026 302.472 57.0007 303.471 53.9387H293.221C291.125 57.7372 287.171 60.0405 282.458 60.0405C277.026 60.0405 272.642 56.108 271.436 50.024L271.142 48.551H304.058L304.071 46.2299ZM271.752 40.7887C272.405 38.4135 273.807 36.323 275.743 34.8395C277.679 33.3561 280.04 32.5621 282.462 32.58C287.57 32.58 291.388 35.651 292.721 40.7887H271.752Z" />
+  <path d="M458.229 46.2299C457.983 32.9014 449.1 23.5857 436.617 23.5857C423.941 23.5857 414.388 33.3165 414.388 46.221C414.313 52.126 416.482 57.8321 420.443 62.1474C424.498 66.4726 430.308 68.8429 436.626 68.8429C442.944 68.8429 448.754 66.4637 452.805 62.1474C454.982 59.8026 456.629 57.0007 457.628 53.9387H447.377C445.281 57.7372 441.331 60.0405 436.613 60.0405C431.18 60.0405 426.796 56.108 425.59 50.024L425.296 48.551H458.229V46.2299ZM425.91 40.7887C426.562 38.4135 427.964 36.3226 429.899 34.839C431.834 33.3555 434.195 32.5616 436.617 32.58C441.725 32.58 445.544 35.651 446.877 40.7887H425.91Z" />
+  <path d="M335.186 23.6276C327.992 23.1829 321.875 26.296 318.779 32.193V24.8684H306.9V67.4286H318.779V48.9503C318.779 37.6632 326.892 31.9039 335.186 35.1371V23.6276Z" />
+  <path d="M258.883 58.1735C257.211 58.9069 255.405 59.2878 253.578 59.2922C248.532 59.2922 245.75 56.2304 245.75 50.6685V33.6217H259.383V24.9268H245.741V6.61875L234.363 10.75V24.9268H215.035V6.61429L203.657 10.7456V52.1927C203.657 63.0848 209.315 68.8429 220.015 68.8429C224.19 68.8429 227.771 68.1699 230.929 66.7839L228.169 58.1825C226.496 58.9159 224.69 59.2967 222.864 59.3011C217.818 59.3011 215.035 56.2394 215.035 50.6774V33.6351H234.371V52.1927C234.371 63.0848 240.029 68.8429 250.733 68.8429C254.904 68.8429 258.486 68.1699 261.643 66.7839L258.883 58.1735Z" />
+  <path d="M534.709 58.1691C533.063 58.9024 531.285 59.2832 529.486 59.2877C524.51 59.2877 521.773 56.226 521.773 50.6641V33.6173H535.202V24.9223H521.769V6.61429L510.557 10.7456V52.1927C510.557 63.0848 516.132 68.8429 526.679 68.8429C530.793 68.8429 534.322 68.1699 537.429 66.7839L534.709 58.1691Z" />
+  <path d="M45.2571 60.232L81.2004 73.0857C87.0869 65.5936 90.5143 56.0542 90.5143 45.4144C90.5143 20.071 71.061 0.957146 45.2571 0.957146C19.4533 0.957146 0 20.071 0 45.4144C0 56.0542 3.43189 65.5805 9.31831 73.0857L45.2571 60.232Z" fill="#FFC729" />
+</svg></span>
+          </a>
+    
+          
+          <div class="bt-Nav-triggerCta" data-behavior-toggle-class="is-expanded" data-toggle-target=".bt-OverlayPanel" data-behavior-overlay-nav-trigger="" role="button" tabindex="0" data-cy-overlaynavcta="">
+            <span class="">
+              <span class="bt-Icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16" aria-label="Open menu" role="img">
+                  <title>Open menu</title>
+                  <path id="for-open" d="M0 9V7h16v2H0zm0-4V3h16v2H0zm0 8v-2h16v2H0z"></path>
+                  <path id="for-close" d="M14.6 0L8 6.6 1.4 0 0 1.4 6.6 8 0 14.6 1.4 16 8 9.4l6.6 6.6 1.4-1.4L9.4 8 16 1.4 14.6 0z"></path>
+                </svg>
+              </span>
+            </span>
+          </div>
+    
+          <div class="nav-wrap flex-wrap flex-middle">
+            
+            <nav class="HeaderNavWp__nav" data-behavior-large-screen-nav="" aria-label="header navigation">
+              <div class="menu-new_menu-container">
+                <ul class="menu flex-wrap flex-middle">
+                
+                  <li id="menu-item-27c7b8732d1a279720d27cc8c3a26c93" class="menu-item menu-item_depth-1   menu-item-27c7b8732d1a279720d27cc8c3a26c93">
+                    
+                      <a href="../careers.html" data-event="Careers" data-track-event="ElementClicked" data-track-name="Careers
+" data-track-module="TopNav">Careers</a>
+                    
+                    
+                    
+                    
+    
+                  </li>
+                
+                  <li id="menu-item-ab0268fb8036a892dc341945cb7ae3be" class="menu-item menu-item_depth-1   menu-item-ab0268fb8036a892dc341945cb7ae3be">
+                    
+                      <a href="../careers/engineering.html" data-event="Engineering" data-track-event="ElementClicked" data-track-name="Engineering
+" data-track-module="TopNav">Engineering</a>
+                    
+                    
+                    
+                    
+    
+                  </li>
+                
+                  <li id="menu-item-d6b9ea32b921a9f56de32062ba4b94f3" class="menu-item menu-item_depth-1 current-menu-ancestor current-menu-parent menu-item-has-children menu-item-d6b9ea32b921a9f56de32062ba4b94f3">
+                    
+                      <a data-event="Blogs" data-track-event="ElementClicked" data-track-name="Blogs
+" data-track-module="TopNav" role="button" tabindex="0" aria-controls="menu-control-2" aria-expanded="false">Blogs</a>
+                    
+                    
+                    
+                    
+                    <ul class="sub-menu" id="menu-control-2">
+                      
+                      <li id="menu-item-6ee2fe1fca2b4136a53b06e70b70a361" class="menu-item menu-item_depth-2  menu-item-6ee2fe1fca2b4136a53b06e70b70a361">
+                        <a href="../design.html" data-event="Product and design blog" data-track-event="ElementClicked" data-track-name="ProductAndDesignBlog
+" data-track-module="TopNav" data-itemindex="0">Product and design blog</a>
+                      </li>
+                      
+                      <li id="menu-item-3d3a360f13403f3fbacdfc8d597e8f62" class="menu-item menu-item_depth-2 current-menu-ancestor current-menu-parent menu-item-3d3a360f13403f3fbacdfc8d597e8f62">
+                        <a href="../engineering.html" data-event="Engineering blog" data-track-event="ElementClicked" data-track-name="EngineeringBlog
+" data-track-module="TopNav" data-itemindex="1">Engineering blog</a>
+                      </li>
+                      
+                    </ul>
+                    
+    
+                  </li>
+                
+                </ul>
+              </div>
+            </nav>
+            
+   
+  
+      
+  
+  
+  <div class="bt-Nav-panelTrigger bt-nav-cta-1">
+    <div class="u-displayNone--until-lg">
+      <div>
+        <a href="../about.html" class="HeaderNavWp__LoginButton" data-cy-nav-large-secondary-cta="" data-track-event="ElementClicked" data-track-name="LogIn" data-track-module="TopNav" data-interaction-listener-registered="true">
+          About us
+        </a>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+  
+      
+  
+  
+  <div class="u-displayNone--until-lg bt-nav-cta-2">
+    <div>
+      <a href="../careers/current-openings.html" class="bt-PrimaryButton" data-cy-nav-large-primary-cta="" data-behavior-get-started-click="" data-get-started-click-location="TopNav">
+          Explore openings
+      </a>
+    </div>      
+  </div>
+   
+
+
+            
+  
+  
+  <nav class="bt-CourtesyNav-list" data-behavior-large-screen-nav="" aria-label="courtesy navigation mobile">
+    <ul>
+      
+        
+          <li id="menu-item-Individuals">
+            <a href="../index.html" data-event="Individuals" data-track-event="ElementClicked" data-track-name="Individuals" data-track-module="CourtesyNav" class="bt-eyebrow">For Individuals</a>
+          </li>
+        
+      
+        
+          <li id="menu-item-Employers">
+            <a href="../work.html" data-event="Employers" data-track-event="ElementClicked" data-track-name="Employers" data-track-module="CourtesyNav" class="bt-eyebrow">For Employers</a>
+          </li>
+        
+      
+        
+          <li id="menu-item-Advisors">
+            <a href="../advisors.html" data-event="Advisors" data-track-event="ElementClicked" data-track-name="Advisors" data-track-module="CourtesyNav" class="bt-eyebrow">For Advisors</a>
+          </li>
+        
+      
+    </ul>
+  </nav>
+
+          </div>
+    
+        </div>
+      </div>
+    </div>
+  </header>
+
+  
+ 
+</div>
+
+</div>
+      
+      <div id="hs_cos_wrapper_module_16419355051849" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+
+   
+      
+   
+      
+      <script id="hero-spacing-script" type="application/json">{"pt_lg":120,"pt_sm":100}</script>
+   
+
+
+
+
+
+   
+
+   
+
+   
+
+</div>
+    </div>
+  </div>
+
+  
+      
+ 
+
+                  
+
+
+
+
+
+
+
+
+<main id="main-content" class="body-container-wrapper read-time blog-post">
+  <div class="body-container body-container--blog-post">
+    
+    <article>
+      <div class="bt-section hero-spacer">
+        <div class="see-all-articles">
+          <div class="bt-container">
+            <a href="../engineering.html" class="bt-TertiaryButton bt-TertiaryButton_reverse">See all articles</a>
+          </div>
+        </div>
+        <div class="bt-container bt-container_small">
+          <div class="blog-post-header">
+            <h1 class="bt-title2">Why (And How) Betterment Is Using Julia</h1>
+
+            
+            <h2 class="bt-body1">Betterment is using Julia to solve our own version of the “two-language problem."</h2>
+            
+            
+
+            <div class="blog-post-meta flex flex-middle">
+            
+              <img class="author-thumbnail" src="../hubfs/Graphics/author-avatars/dan-fellicetta.jpg" alt="Image of Dan Felicetta | Former Staff Engineer, Betterment">
+            
+
+              <div class="blog-post-meta-text bt-body3">
+                <span class="blog-post-meta-text-top">
+                  By
+                  
+                    <a href="author/dan-felicetta.html" rel="author">Dan Felicetta</a>
+                  
+                </span>
+                <div class="blog-post-meta-text-bottom">
+                  
+                    <span>Former Staff Engineer, Betterment</span>
+                  
+                  
+                    <span> | </span>
+                  
+                  
+   
+     
+   
+ 
+   
+ 
+   <div class="blog-post-date">
+     <span>Published <time datetime="2021-11-14" class="blog-post-timestamp">Nov. 14, 2021</time> </span>
+ 
+     
+   </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+          <div class="bt-container bt-container_narrow center">
+            <img class="blog-post-featured-image" src="../hubfs/Graphics/featured-images/goal-card-on-track-retire-in-the-mountains.png" alt="Retirement goal next to on track graph">      
+          </div>
+        
+
+        <div class="bt-container bt-container_small">
+          <div class="blog-post-caption-area">
+            <div class="flex flex-spaceBetween blog-post-meta-2">
+              <div class="js-post-body-count" aria-hidden="true" hidden>
+              Why (And How) Betterment Is Using Julia Nov 14, 2021 5:51:19 PM Betterment is using Julia to solve our own version of the “two-language problem." At Betterment, we’re using&nbsp;Julia&nbsp;to power the projections and recommendations we provide to help our customers achieve their financial goals. We’ve found it to be a great solution to our own version of the “two-language problem”–the idea that the language in which it is most convenient to write a program is not necessarily the language in which it makes the most sense to run that program. We’re excited to share the approach we took to incorporating it into our stack and the challenges we encountered along the way. Working behind the scenes, the members of our Quantitative Investing team bring our customers the projections and recommendations they rely on for keeping their goals on-track. These hard-working and talented individuals spend a large portion of their time developing models, researching new investment ideas and maintaining our research libraries. While they’re not engineers, their jobs definitely involve a good amount of coding. Historically, the team has written code mostly in a research environment, implementing proof-of-concept models that are later translated into production code with help from the engineering team. Recently, however, we’ve invested significant resources in modernizing this research pipeline by converting our codebase from R to Julia and we’re now able to ship updates to our quantitative models quicker, and with less risk of errors being introduced in translation. Currently, Julia powers all the projections shown inside our app, as well as a lot of the advice we provide to our customers. The Julia library we built for this purpose serves around 18 million requests per day, and very efficiently at that. Examples of projections and recommendations at Betterment. Does not reflect any actual portfolio and is not a guarantee of performance. Why Julia? At QCon London 2019, Steve Klabnik gave a&nbsp;great talk&nbsp;on how the developers of the Rust programming language view tradeoffs in programming language design. The whole talk is worth a watch, but one idea that really resonated with us is that programming language design—and programming language choice—is a reflection of what the end-users of that language value and not a reflection of the objective superiority of one language over another. Julia is a newer language that looked like a perfect fit for the investing team for a number of reasons: Speed.&nbsp;If you’ve heard one thing about Julia, it’s probably about it’s blazingly fast performance. For us, speed is important as we need to be able to provide real-time advice to our customers by incorporating their most up-to-date financial scenario in our projections and recommendations. It is also important in our research code where the iterative nature of research means we often have to re-run financial simulations or models multiple times with slight tweaks. Dynamicism.&nbsp;While speed of execution is important, we also require a dynamic language that allows us to test out new ideas and prototype rapidly. Julia ticks the box for this requirement as well by using a&nbsp;just-in-time compiler&nbsp;that accommodates both interactive and non-interactive workflows well. Julia also has a very rich type system where researchers can build prototypes without type declarations, and then later refactoring the code where needed with type declarations for dispatch or clarity. In either case, Julia is usually able to generate performant compiled code that we can run in production. Relevant ecosystem.&nbsp;While the nascency of Julia as a language means that the community and ecosystem is much smaller than those of other languages, we found that the code and community oversamples on the type of libraries that we care about. Julia has excellent support for technical computing and mathematical modelling. Given these reasons, Julia is the perfect language to serve as a solution to the “two-language problem”. This concept is oft-quoted in Julian circles and is perfectly exemplified by the previous workflow of our team: Investing Subject Matter Experts (SMEs) write domain-specific code that’s solely meant to serve as research code, and that code then has to be translated into some more performant language for use in production. Julia solves this issue by making it very simple to take a piece of research code and refactor it for production use. Our approach We decided to build our Julia codebase inside a&nbsp;monorepo, with separate packages for each conceptual project we might work on, such as interest rate models, projections, social security amount calculations and so on. This works well from a development perspective, but we soon faced the question of how best to integrate this code with our production code, which is mostly developed in Ruby. We identified two viable alternatives: Build a thin web service that will accept HTTP requests, call the underlying Julia functions, and then return a HTTP response. Compile the Julia code into a shared library, and call it directly from Ruby using&nbsp;FFI. Option 1 is a very common pattern, and actually quite similar to what had been the status quo at Betterment, as most of the projections and recommendation code existed in a JavaScript service. It may be surprising then to learn that we actually went with Option 2. We were deeply attracted to the idea of being able to fully integration-test our projections and recommendations working within our actual app (i.e. without the complication of a service boundary). Additionally, we wanted an integration that we could spin-up quickly and with low ongoing cost; there’s some fixed cost to getting a FFI-embed working right—but once you do, it’s an exceedingly low cost integration to maintain. Fully-fledged services require infrastructure to run and are (ideally) supported by a full team of engineers. That said, we recognize the attractive properties of the more well-trodden Option 1 path and believe it could be the right solution in a lot of scenarios (and may become the right solution for us as our usage of Julia continues to evolve). Implementation Given how new Julia is, there was minimal literature on true interoperability with other programming languages (particularly high-level languages–Ruby, Python, etc). But we saw that the right building blocks existed to do what we wanted and proceeded with the confidence that it was theoretically possible. As mentioned earlier, Julia is a just-in-time compiled language, but it’s possible to compile Julia code ahead-of-time using&nbsp;PackageCompiler.jl. We built an additional package into our monorepo whose sole purpose was to expose an API for our Ruby application, as well as compile that exposed code into a C shared library. The code in this package is the glue between our pure Julia functions and the lower level library interface—it’s responsible for defining the functions that will be exported by the shared library and doing any necessary conversions on input/output. As an example, consider the following simple Julia function which sorts an array of numbers using the&nbsp;insertion sort&nbsp;algorithm: In order to be able to expose this in a shared library, we would wrap it like this: Here we’ve simplified memory management by requiring the caller to allocate memory for the result, and implemented primitive exception handling (see&nbsp;Challenges &amp; Pitfalls&nbsp;below). On the Ruby end, we built a&nbsp;gem&nbsp;which wraps our Julia library and attaches to it using&nbsp;Ruby-FFI. The gem includes a tiny Julia project with the API library as it’s only dependency. Upon gem installation, we fetch the Julia source and compile it as a native extension. Attaching to our example function with Ruby-FFI is straightforward: From here, we could begin using our function, but it wouldn’t be entirely pleasant to work with–converting an input array to a pointer and processing the result would require some tedious boilerplate. Luckily, we can use Ruby’s powerful metaprogramming abilities to abstract all that away–creating a declarative way to wrap an arbitrary Julia function which results in a familiar and easy-to-use interface for Ruby developers. In practice, that might look something like this: Resulting in a function for which the fact that the underlying implementation is in Julia has been completely abstracted away: Challenges &amp; Pitfalls Debugging an FFI integration can be challenging; any misconfiguration is likely to result in the dreaded&nbsp;segmentation fault–the cause of which can be difficult to hunt down. Here are a few notes for practitioners about some nuanced issues we ran into, that will hopefully save you some headaches down the line: The Julia runtime has to be initialized before calling the shared library. When loading the dynamic library (whether through Ruby-FFI or some other invocation of `dlopen`), make sure to pass the flags `RTLD_LAZY` and `RTLD_GLOBAL` (`ffi_lib_flags :lazy, :global` in Ruby-FFI). If embedding your Julia library into a multi-threaded application, you’ll need additional tooling to only initialize and make calls into the Julia library from a single thread, as multiple calls to `jl_init`&nbsp;will error. We use a multi-threaded web server for our production application, and so when we make a call into the Julia shared library, we push that call onto a queue where it gets picked up and performed by a single executor thread which then communicates the result back to the calling thread using a&nbsp;promise&nbsp;object. Memory management–if you’ll be passing anything other than primitive types back from Julia to Ruby (e.g. pointers to more complex objects), you’ll need to take care to ensure the memory containing the data you’re passing back isn’t cleared by the Julia garbage collector prior to being read on the Ruby side. Different approaches are possible. Perhaps the simplest is to have the Ruby side allocate the memory into which the Julia function should write it’s result (and pass the Julia function a pointer to that memory). Alternatively, if you want to actually pass complex objects out, you’ll have to ensure Julia holds a reference to the objects beyond the life of the function, in order to keep them from being garbage collected. And then you’ll probably want to expose a way for Ruby to instruct Julia to clean up that reference (i.e. free the memory) when it’s done with it (Ruby-FFI has good support for triggering a callback when an object goes out-of-scope on the Ruby side). Exception handling–conveying unhandled exceptions across the FFI boundary is generally not possible. This means any unhandled exception occurring in your Julia code will result in a segmentation fault. To avoid this, you’ll probably want to implement catch-all exception handling in your shared library exposed functions that will catch any exceptions that occur and return some context about the error to the caller (minimally, a boolean indicator of success/failure). Tooling To simplify development, we use a lot of tooling and infrastructure developed both in-house and by the Julia community. Since one of the draws of using Julia in the first place is the performance of the code, we make sure to benchmark our code during every pull request for potential performance regressions using the&nbsp;BenchmarkTools.jl&nbsp;package. To facilitate versioning and sharing of our Julia packages internally (e.g. to share a version of the Ruby-API package with the Ruby gem which wraps it) we also maintain a private package registry. The registry is a separate Github repository, and we use tooling from the&nbsp;Registrator.jl&nbsp;package to register new versions. To process registration events, we maintain a registry server on an EC2 instance provisioned through&nbsp;Terraform, so updates to the configuration are as easy as running a single `terraform apply` command. Once a new registration event is received, the registry server opens a pull request to the Julia registry. There, we have built in automated testing that resolves the version of the package that is being tested, looks up any reverse dependencies of that package, resolves the compatibility bounds of those packages to see if the newly registered version could lead to a breaking change, and if so, runs the full test suites of the reverse dependencies. By doing this, we can ensure that when we release a patch or minor version of one of our packages, we can ensure that it won’t break any packages that depend on it at registration time. If it would, the user is instead forced to either fix the changes that lead to a downstream breakage, or to modify the registration to be a major version increase. Takeaways Though our venture into the Julia world is still relatively young compared to most of the other code at Betterment, we have found Julia to be a perfect fit in solving our two-language problem within the Investing team. Getting the infrastructure into a production-ready format took a bit of tweaking, but we are now starting to realize a lot of the benefits we hoped for when setting out on this journey, including faster development of production ready models, and a clear separation of responsibilities between the SMEs on the Investing team who are best suited for designing and specifying the models, and the engineering team who have the knowledge on how to scale that code into a production-grade library. The switch to Julia has allowed us not only to optimize and speed up our code by multiple orders of magnitude, but also has given us the environment and ecosystem to explore ideas that would simply not be possible in our previous implementations.
+              </div>
+              <span class="readingTime"></span>
+              <div id="hs_cos_wrapper_module_1629497677" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+<div class="social-container">
+   
+      
+   <span id="hs_cos_wrapper_module_1629497677_my_social_sharing" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_social_sharing" style="" data-hs-cos-general-type="widget" data-hs-cos-type="social_sharing"></span>
+   
+   <ul class="flex flex-middle social-items"> 
+      
+         <li>
+            <a href="http://www.facebook.com/share.php?u=https://www.betterment.com/engineering/why-betterment-is-using-julia?utm_medium%3Dsocial%26utm_source%3Demail" target="_blank" rel="noopener noreferrer">
+               <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16" aria-label="Betterment on Facebook" role="img"><title>Betterment on Facebook</title><path d="M9.5 3H12V0H9.5C7.5 0 6 1.6 6 3.5V5H4v3h2v8h3V8h2.5l.5-3H9V3.5c0-.3.2-.5.5-.5"></path></svg>
+            </a>
+         </li>
+      
+         <li>
+            <a href="https://twitter.com/intent/tweet?original_referer=https://www.betterment.com/engineering/why-betterment-is-using-julia?utm_medium%3Dsocial%26utm_source%3Demail&amp;url=https://www.betterment.com/engineering/why-betterment-is-using-julia?utm_medium%3Dsocial%26utm_source%3Demail&amp;source=tweetbutton&amp;text=Why+%28And+How%29+Betterment+Is+Using+Julia" target="_blank" rel="noopener noreferrer">
+               <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16" aria-label="Betterment on Twitter" role="img"> <title>Betterment on Twitter</title> <path d="M16 2.7c-.6.3-1.2.5-1.9.5.7-.4 1.2-1 1.5-1.8a6 6 0 01-2.1.8 3.3 3.3 0 00-5.6 3A9.3 9.3 0 011 1.8a3.3 3.3 0 001 4.4c-.5 0-1-.2-1.5-.4 0 1.6 1.2 3 2.7 3.2a3.3 3.3 0 01-1.5 0 3.3 3.3 0 003 2.4A6.6 6.6 0 010 12.7a9.3 9.3 0 0014.4-8.3c.6-.4 1.2-1 1.6-1.7"></path> </svg>
+            </a>
+         </li>
+      
+         <li>
+            <a href="mailto:?subject=Check%20out%20https://www.betterment.com/engineering/why-betterment-is-using-julia?utm_medium%3Dsocial%26utm_source%3Demail%20&amp;body=Check%20out%20https://www.betterment.com/engineering/why-betterment-is-using-julia?utm_medium%3Dsocial%26utm_source%3Demail" target="_blank" rel="noopener noreferrer">
+               <svg viewbox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Betterment Email Share"><title>Betterment Email Share</title><path fill-rule="evenodd" clip-rule="evenodd" d="M1 4H16V15H1V4ZM2.5 13.4286V7.53571L8.5 11.4643L14.5 7.53571V13.4286H2.5ZM14.5 5.57143H2.5L8.5 9.5L14.5 5.57143Z" /></svg>
+            </a>
+         </li>
+      
+
+      
+         <li class="copy-clip-container">
+            <button aria-label="Copy Post Link" class="bt-UnstyledButton copy-clip-button">
+               <svg viewbox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Betterment Clipboard Share"><title>Betterment Clipboard Share</title><path fill-rule="evenodd" clip-rule="evenodd" d="M2.53333 5.13332C2.83406 4.82896 3.19221 4.58731 3.58703 4.42238C3.98184 4.25746 4.40546 4.17253 4.83333 4.17253C5.26121 4.17253 5.68483 4.25746 6.07964 4.42238C6.47445 4.58731 6.8326 4.82896 7.13333 5.13332L9.03333 7.03332L8.2 7.86666L6.3 5.96666C5.89446 5.64917 5.38639 5.49179 4.87239 5.52443C4.35839 5.55707 3.87432 5.77746 3.5122 6.1437C3.15008 6.50993 2.93517 6.99647 2.90834 7.5108C2.88151 8.02514 3.04462 8.5314 3.36667 8.93332L5.26667 10.8L4.43333 11.6333L2.53333 9.73332C2.22897 9.43259 1.98732 9.07444 1.82239 8.67963C1.65746 8.28482 1.57254 7.8612 1.57254 7.43332C1.57254 7.00545 1.65746 6.58183 1.82239 6.18702C1.98732 5.79221 2.22897 5.43405 2.53333 5.13332V5.13332Z" /> <path fill-rule="evenodd" clip-rule="evenodd" d="M11.8667 14.4667C12.4733 13.8549 12.8136 13.0282 12.8136 12.1667C12.8136 11.3051 12.4733 10.4785 11.8667 9.86666L9.96667 7.96666L9.13334 8.79999L11.0333 10.7C11.4223 11.089 11.6408 11.6166 11.6408 12.1667C11.6408 12.7168 11.4223 13.2443 11.0333 13.6333C10.6444 14.0223 10.1168 14.2408 9.56667 14.2408C9.01656 14.2408 8.48899 14.0223 8.1 13.6333L6.2 11.7333L5.36667 12.5667L7.26667 14.4667C7.87847 15.0733 8.70513 15.4136 9.56667 15.4136C10.4282 15.4136 11.2549 15.0733 11.8667 14.4667V14.4667Z" /> <path fill-rule="evenodd" clip-rule="evenodd" d="M9.13334 12.5667L4.43333 7.86667L5.26667 7.03334L9.96667 11.7333L9.13334 12.5667V12.5667Z" /></svg>
+            </button>
+            <div class="copy-clip-confirmation">
+               <p>Copied!</p>
+            </div>
+         </li>
+      
+   </ul>
+   
+</div>
+
+</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bt-container bt-container_small">
+          <div class="blog-post-body">
+            <span id="hs_cos_wrapper_post_body" class="hs_cos_wrapper hs_cos_wrapper_meta_field hs_cos_wrapper_type_rich_text" style="" data-hs-cos-general-type="meta_field" data-hs-cos-type="rich_text"><p>Betterment is using Julia to solve our own version of the “two-language problem."<!--more--></p>
+<p>At Betterment, we’re using&nbsp;<a href="https://julialang.org/">Julia</a>&nbsp;to power the projections and recommendations we provide to help our customers achieve their financial goals. We’ve found it to be a great solution to our own version of the “two-language problem”–the idea that the language in which it is most convenient to write a program is not necessarily the language in which it makes the most sense to run that program. We’re excited to share the approach we took to incorporating it into our stack and the challenges we encountered along the way.</p>
+<p>Working behind the scenes, the members of our Quantitative Investing team bring our customers the projections and recommendations they rely on for keeping their goals on-track. These hard-working and talented individuals spend a large portion of their time developing models, researching new investment ideas and maintaining our research libraries. While they’re not engineers, their jobs definitely involve a good amount of coding. Historically, the team has written code mostly in a research environment, implementing proof-of-concept models that are later translated into production code with help from the engineering team.</p>
+<p>Recently, however, we’ve invested significant resources in modernizing this research pipeline by converting our codebase from R to Julia and we’re now able to ship updates to our quantitative models quicker, and with less risk of errors being introduced in translation. Currently, Julia powers all the projections shown inside our app, as well as a lot of the advice we provide to our customers. The Julia library we built for this purpose serves around 18 million requests per day, and very efficiently at that.</p>
+<p><img src="../hs-fs/hubfs/Graphics/article-images/retirement-advice-projection-screen0204.png?width=1536&amp;name=retirement-advice-projection-screen.png" alt="retirement-advice-projection-screen" width="1536" loading="lazy" style="width: 1536px;" srcset="https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/retirement-advice-projection-screen.png?width=768&amp;name=retirement-advice-projection-screen.png 768w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/retirement-advice-projection-screen.png?width=1536&amp;name=retirement-advice-projection-screen.png 1536w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/retirement-advice-projection-screen.png?width=2304&amp;name=retirement-advice-projection-screen.png 2304w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/retirement-advice-projection-screen.png?width=3072&amp;name=retirement-advice-projection-screen.png 3072w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/retirement-advice-projection-screen.png?width=3840&amp;name=retirement-advice-projection-screen.png 3840w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/retirement-advice-projection-screen.png?width=4608&amp;name=retirement-advice-projection-screen.png 4608w" sizes="(max-width: 1536px) 100vw, 1536px"></p>
+<p>Examples of projections and recommendations at Betterment. Does not reflect any actual portfolio and is not a guarantee of performance.</p>
+<h2>Why Julia?</h2>
+<p>At QCon London 2019, Steve Klabnik gave a&nbsp;<a href="https://www.youtube.com/watch?v=2ajos-0OWts">great talk</a>&nbsp;on how the developers of the Rust programming language view tradeoffs in programming language design. The whole talk is worth a watch, but one idea that really resonated with us is that programming language design—and programming language choice—is a reflection of what the end-users of that language value and not a reflection of the objective superiority of one language over another. Julia is a newer language that looked like a perfect fit for the investing team for a number of reasons:</p>
+<ol>
+<li aria-level="1">Speed.&nbsp;If you’ve heard one thing about Julia, it’s probably about it’s blazingly fast performance. For us, speed is important as we need to be able to provide real-time advice to our customers by incorporating their most up-to-date financial scenario in our projections and recommendations. It is also important in our research code where the iterative nature of research means we often have to re-run financial simulations or models multiple times with slight tweaks.</li>
+<li aria-level="1">Dynamicism.&nbsp;While speed of execution is important, we also require a dynamic language that allows us to test out new ideas and prototype rapidly. Julia ticks the box for this requirement as well by using a&nbsp;<a href="https://en.wikipedia.org/wiki/Just-in-time_compilation">just-in-time compiler</a>&nbsp;that accommodates both interactive and non-interactive workflows well. Julia also has a very rich type system where researchers can build prototypes without type declarations, and then later refactoring the code where needed with type declarations for dispatch or clarity. In either case, Julia is usually able to generate performant compiled code that we can run in production.</li>
+<li aria-level="1">Relevant ecosystem.&nbsp;While the nascency of Julia as a language means that the community and ecosystem is much smaller than those of other languages, we found that the code and community oversamples on the type of libraries that we care about. Julia has excellent support for technical computing and mathematical modelling.</li>
+</ol>
+<p>Given these reasons, Julia is the perfect language to serve as a solution to the “two-language problem”. This concept is oft-quoted in Julian circles and is perfectly exemplified by the previous workflow of our team: Investing Subject Matter Experts (SMEs) write domain-specific code that’s solely meant to serve as research code, and that code then has to be translated into some more performant language for use in production. Julia solves this issue by making it very simple to take a piece of research code and refactor it for production use.</p>
+<h2>Our approach</h2>
+<p>We decided to build our Julia codebase inside a&nbsp;<a href="https://circleci.com/blog/monorepo-dev-practices/">monorepo</a>, with separate packages for each conceptual project we might work on, such as interest rate models, projections, social security amount calculations and so on. This works well from a development perspective, but we soon faced the question of how best to integrate this code with our production code, which is mostly developed in Ruby. We identified two viable alternatives:</p>
+<ol>
+<li aria-level="1">Build a thin web service that will accept HTTP requests, call the underlying Julia functions, and then return a HTTP response.</li>
+<li aria-level="1">Compile the Julia code into a shared library, and call it directly from Ruby using&nbsp;<a href="https://en.wikipedia.org/wiki/Foreign_function_interface">FFI</a>.</li>
+</ol>
+<p>Option 1 is a very common pattern, and actually quite similar to what had been the status quo at Betterment, as most of the projections and recommendation code existed in a JavaScript service.</p>
+<p>It may be surprising then to learn that we actually went with Option 2. We were deeply attracted to the idea of being able to fully integration-test our projections and recommendations working within our actual app (i.e. without the complication of a service boundary). Additionally, we wanted an integration that we could spin-up quickly and with low ongoing cost; there’s some fixed cost to getting a FFI-embed working right—but once you do, it’s an exceedingly low cost integration to maintain. Fully-fledged services require infrastructure to run and are (ideally) supported by a full team of engineers.</p>
+<p>That said, we recognize the attractive properties of the more well-trodden Option 1 path and believe it could be the right solution in a lot of scenarios (and may become the right solution for us as our usage of Julia continues to evolve).</p>
+<h2>Implementation</h2>
+<p>Given how new Julia is, there was minimal literature on true interoperability with other programming languages (particularly high-level languages–Ruby, Python, etc). But we saw that the right building blocks existed to do what we wanted and proceeded with the confidence that it was theoretically possible.</p>
+<p>As mentioned earlier, Julia is a just-in-time compiled language, but it’s possible to compile Julia code ahead-of-time using&nbsp;<a href="https://github.com/JuliaLang/PackageCompiler.jl">PackageCompiler.jl</a>. We built an additional package into our monorepo whose sole purpose was to expose an API for our Ruby application, as well as compile that exposed code into a C shared library. The code in this package is the glue between our pure Julia functions and the lower level library interface—it’s responsible for defining the functions that will be exported by the shared library and doing any necessary conversions on input/output.</p>
+<p>As an example, consider the following simple Julia function which sorts an array of numbers using the&nbsp;<a href="https://en.wikipedia.org/wiki/Insertion_sort">insertion sort</a>&nbsp;algorithm:</p>
+<p><img src="../hs-fs/hubfs/Graphics/article-images/insertion-sort-algorithma1fc.png?width=1360&amp;name=insertion-sort-algorithm.png" alt="insertion-sort-algorithm" width="1360" loading="lazy" style="width: 1360px;" srcset="https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/insertion-sort-algorithm.png?width=680&amp;name=insertion-sort-algorithm.png 680w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/insertion-sort-algorithm.png?width=1360&amp;name=insertion-sort-algorithm.png 1360w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/insertion-sort-algorithm.png?width=2040&amp;name=insertion-sort-algorithm.png 2040w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/insertion-sort-algorithm.png?width=2720&amp;name=insertion-sort-algorithm.png 2720w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/insertion-sort-algorithm.png?width=3400&amp;name=insertion-sort-algorithm.png 3400w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/insertion-sort-algorithm.png?width=4080&amp;name=insertion-sort-algorithm.png 4080w" sizes="(max-width: 1360px) 100vw, 1360px"></p>
+<p>In order to be able to expose this in a shared library, we would wrap it like this:</p>
+<p><img src="../hs-fs/hubfs/Graphics/article-images/insertion-sort-algorithm-with-shared-library95db.png?width=1360&amp;name=insertion-sort-algorithm-with-shared-library.png" alt="insertion-sort-algorithm-with-shared-library" width="1360" loading="lazy" style="width: 1360px;" srcset="https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/insertion-sort-algorithm-with-shared-library.png?width=680&amp;name=insertion-sort-algorithm-with-shared-library.png 680w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/insertion-sort-algorithm-with-shared-library.png?width=1360&amp;name=insertion-sort-algorithm-with-shared-library.png 1360w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/insertion-sort-algorithm-with-shared-library.png?width=2040&amp;name=insertion-sort-algorithm-with-shared-library.png 2040w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/insertion-sort-algorithm-with-shared-library.png?width=2720&amp;name=insertion-sort-algorithm-with-shared-library.png 2720w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/insertion-sort-algorithm-with-shared-library.png?width=3400&amp;name=insertion-sort-algorithm-with-shared-library.png 3400w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/insertion-sort-algorithm-with-shared-library.png?width=4080&amp;name=insertion-sort-algorithm-with-shared-library.png 4080w" sizes="(max-width: 1360px) 100vw, 1360px"></p>
+<p>Here we’ve simplified memory management by requiring the caller to allocate memory for the result, and implemented primitive exception handling (see&nbsp;Challenges &amp; Pitfalls&nbsp;below).</p>
+<p>On the Ruby end, we built a&nbsp;<a href="https://guides.rubygems.org/what-is-a-gem/">gem</a>&nbsp;which wraps our Julia library and attaches to it using&nbsp;<a href="https://github.com/ffi/ffi">Ruby-FFI</a>. The gem includes a tiny Julia project with the API library as it’s only dependency. Upon gem installation, we fetch the Julia source and compile it as a native extension.</p>
+<p>Attaching to our example function with Ruby-FFI is straightforward:</p>
+<p><img src="../hs-fs/hubfs/Graphics/article-images/module-julia-lb559e.png?width=1360&amp;name=module-julia-lb.png" alt="module-julia-lb" width="1360" loading="lazy" style="width: 1360px;" srcset="https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/module-julia-lb.png?width=680&amp;name=module-julia-lb.png 680w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/module-julia-lb.png?width=1360&amp;name=module-julia-lb.png 1360w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/module-julia-lb.png?width=2040&amp;name=module-julia-lb.png 2040w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/module-julia-lb.png?width=2720&amp;name=module-julia-lb.png 2720w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/module-julia-lb.png?width=3400&amp;name=module-julia-lb.png 3400w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/module-julia-lb.png?width=4080&amp;name=module-julia-lb.png 4080w" sizes="(max-width: 1360px) 100vw, 1360px"></p>
+<p>From here, we could begin using our function, but it wouldn’t be entirely pleasant to work with–converting an input array to a pointer and processing the result would require some tedious boilerplate. Luckily, we can use Ruby’s powerful metaprogramming abilities to abstract all that away–creating a declarative way to wrap an arbitrary Julia function which results in a familiar and easy-to-use interface for Ruby developers. In practice, that might look something like this:</p>
+<p><img src="../hs-fs/hubfs/Graphics/article-images/declarative-approach-ruby6595.png?width=1360&amp;name=declarative-approach-ruby.png" alt="declarative-approach-ruby" width="1360" loading="lazy" style="width: 1360px;" srcset="https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/declarative-approach-ruby.png?width=680&amp;name=declarative-approach-ruby.png 680w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/declarative-approach-ruby.png?width=1360&amp;name=declarative-approach-ruby.png 1360w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/declarative-approach-ruby.png?width=2040&amp;name=declarative-approach-ruby.png 2040w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/declarative-approach-ruby.png?width=2720&amp;name=declarative-approach-ruby.png 2720w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/declarative-approach-ruby.png?width=3400&amp;name=declarative-approach-ruby.png 3400w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/declarative-approach-ruby.png?width=4080&amp;name=declarative-approach-ruby.png 4080w" sizes="(max-width: 1360px) 100vw, 1360px"></p>
+<p>Resulting in a function for which the fact that the underlying implementation is in Julia has been completely abstracted away:</p>
+<p><img src="../hs-fs/hubfs/Graphics/article-images/julia-abstracted-away6091.png?width=1360&amp;name=julia-abstracted-away.png" alt="julia-abstracted-away" width="1360" loading="lazy" style="width: 1360px;" srcset="https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/julia-abstracted-away.png?width=680&amp;name=julia-abstracted-away.png 680w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/julia-abstracted-away.png?width=1360&amp;name=julia-abstracted-away.png 1360w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/julia-abstracted-away.png?width=2040&amp;name=julia-abstracted-away.png 2040w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/julia-abstracted-away.png?width=2720&amp;name=julia-abstracted-away.png 2720w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/julia-abstracted-away.png?width=3400&amp;name=julia-abstracted-away.png 3400w, https://www.betterment.com/hs-fs/hubfs/Graphics/article-images/julia-abstracted-away.png?width=4080&amp;name=julia-abstracted-away.png 4080w" sizes="(max-width: 1360px) 100vw, 1360px"></p>
+<h2>Challenges &amp; Pitfalls</h2>
+<p>Debugging an FFI integration can be challenging; any misconfiguration is likely to result in the dreaded&nbsp;<a href="https://en.wikipedia.org/wiki/Segmentation_fault">segmentation fault</a>–the cause of which can be difficult to hunt down. Here are a few notes for practitioners about some nuanced issues we ran into, that will hopefully save you some headaches down the line:</p>
+<ol>
+<li aria-level="1">The Julia runtime has to be initialized before calling the shared library. When loading the dynamic library (whether through Ruby-FFI or some other invocation of `dlopen`), make sure to pass the flags `RTLD_LAZY` and `RTLD_GLOBAL` (`ffi_lib_flags :lazy, :global` in Ruby-FFI).</li>
+<li aria-level="1">If embedding your Julia library into a multi-threaded application, you’ll need additional tooling to only initialize and make calls into the Julia library from a single thread, as multiple calls to `jl_init`&nbsp;<a href="https://discourse.julialang.org/t/embedding-julia-into-multithreading-apps/20122">will error</a>. We use a multi-threaded web server for our production application, and so when we make a call into the Julia shared library, we push that call onto a queue where it gets picked up and performed by a single executor thread which then communicates the result back to the calling thread using a&nbsp;<a href="https://en.wikipedia.org/wiki/Futures_and_promises">promise</a>&nbsp;object.</li>
+<li aria-level="1">Memory management–if you’ll be passing anything other than primitive types back from Julia to Ruby (e.g. pointers to more complex objects), you’ll need to take care to ensure the memory containing the data you’re passing back isn’t cleared by the Julia garbage collector prior to being read on the Ruby side. Different approaches are possible. Perhaps the simplest is to have the Ruby side allocate the memory into which the Julia function should write it’s result (and pass the Julia function a pointer to that memory). Alternatively, if you want to actually pass complex objects out, you’ll have to ensure Julia holds a reference to the objects beyond the life of the function, in order to keep them from being garbage collected. And then you’ll probably want to expose a way for Ruby to instruct Julia to clean up that reference (i.e. free the memory) when it’s done with it (Ruby-FFI has good support for triggering a callback when an object goes out-of-scope on the Ruby side).</li>
+<li aria-level="1">Exception handling–conveying unhandled exceptions across the FFI boundary is generally not possible. This means any unhandled exception occurring in your Julia code will result in a segmentation fault. To avoid this, you’ll probably want to implement catch-all exception handling in your shared library exposed functions that will catch any exceptions that occur and return some context about the error to the caller (minimally, a boolean indicator of success/failure).</li>
+</ol>
+<h2>Tooling</h2>
+<p>To simplify development, we use a lot of tooling and infrastructure developed both in-house and by the Julia community.</p>
+<p>Since one of the draws of using Julia in the first place is the performance of the code, we make sure to benchmark our code during every pull request for potential performance regressions using the&nbsp;<a href="https://github.com/JuliaCI/BenchmarkTools.jl">BenchmarkTools.jl</a>&nbsp;package.</p>
+<p>To facilitate versioning and sharing of our Julia packages internally (e.g. to share a version of the Ruby-API package with the Ruby gem which wraps it) we also maintain a private package registry. The registry is a separate Github repository, and we use tooling from the&nbsp;<a href="https://github.com/JuliaRegistries/Registrator.jl">Registrator.jl</a>&nbsp;package to register new versions. To process registration events, we maintain a registry server on an EC2 instance provisioned through&nbsp;<a href="https://www.terraform.io/">Terraform</a>, so updates to the configuration are as easy as running a single `terraform apply` command.</p>
+<p>Once a new registration event is received, the registry server opens a pull request to the Julia registry. There, we have built in automated testing that resolves the version of the package that is being tested, looks up any reverse dependencies of that package, resolves the compatibility bounds of those packages to see if the newly registered version could lead to a breaking change, and if so, runs the full test suites of the reverse dependencies. By doing this, we can ensure that when we release a patch or minor version of one of our packages, we can ensure that it won’t break any packages that depend on it at registration time. If it would, the user is instead forced to either fix the changes that lead to a downstream breakage, or to modify the registration to be a major version increase.</p>
+<h2>Takeaways</h2>
+<p>Though our venture into the Julia world is still relatively young compared to most of the other code at Betterment, we have found Julia to be a perfect fit in solving our two-language problem within the Investing team. Getting the infrastructure into a production-ready format took a bit of tweaking, but we are now starting to realize a lot of the benefits we hoped for when setting out on this journey, including faster development of production ready models, and a clear separation of responsibilities between the SMEs on the Investing team who are best suited for designing and specifying the models, and the engineering team who have the knowledge on how to scale that code into a production-grade library. The switch to Julia has allowed us not only to optimize and speed up our code by multiple orders of magnitude, but also has given us the environment and ecosystem to explore ideas that would simply not be possible in our previous implementations.</p></span>
+          </div>
+        </div>
+
+        
+
+
+
+
+        <div class="bt-container bt-container_small">
+          <div id="hs_cos_wrapper_module_1629497677" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+<div class="social-container">
+   
+      
+   <span id="hs_cos_wrapper_module_1629497677_my_social_sharing" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_social_sharing" style="" data-hs-cos-general-type="widget" data-hs-cos-type="social_sharing"></span>
+   
+   <ul class="flex flex-middle social-items"> 
+      
+         <li>
+            <a href="http://www.facebook.com/share.php?u=https://www.betterment.com/engineering/why-betterment-is-using-julia?utm_medium%3Dsocial%26utm_source%3Demail" target="_blank" rel="noopener noreferrer">
+               <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16" aria-label="Betterment on Facebook" role="img"><title>Betterment on Facebook</title><path d="M9.5 3H12V0H9.5C7.5 0 6 1.6 6 3.5V5H4v3h2v8h3V8h2.5l.5-3H9V3.5c0-.3.2-.5.5-.5"></path></svg>
+            </a>
+         </li>
+      
+         <li>
+            <a href="https://twitter.com/intent/tweet?original_referer=https://www.betterment.com/engineering/why-betterment-is-using-julia?utm_medium%3Dsocial%26utm_source%3Demail&amp;url=https://www.betterment.com/engineering/why-betterment-is-using-julia?utm_medium%3Dsocial%26utm_source%3Demail&amp;source=tweetbutton&amp;text=Why+%28And+How%29+Betterment+Is+Using+Julia" target="_blank" rel="noopener noreferrer">
+               <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16" aria-label="Betterment on Twitter" role="img"> <title>Betterment on Twitter</title> <path d="M16 2.7c-.6.3-1.2.5-1.9.5.7-.4 1.2-1 1.5-1.8a6 6 0 01-2.1.8 3.3 3.3 0 00-5.6 3A9.3 9.3 0 011 1.8a3.3 3.3 0 001 4.4c-.5 0-1-.2-1.5-.4 0 1.6 1.2 3 2.7 3.2a3.3 3.3 0 01-1.5 0 3.3 3.3 0 003 2.4A6.6 6.6 0 010 12.7a9.3 9.3 0 0014.4-8.3c.6-.4 1.2-1 1.6-1.7"></path> </svg>
+            </a>
+         </li>
+      
+         <li>
+            <a href="mailto:?subject=Check%20out%20https://www.betterment.com/engineering/why-betterment-is-using-julia?utm_medium%3Dsocial%26utm_source%3Demail%20&amp;body=Check%20out%20https://www.betterment.com/engineering/why-betterment-is-using-julia?utm_medium%3Dsocial%26utm_source%3Demail" target="_blank" rel="noopener noreferrer">
+               <svg viewbox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Betterment Email Share"><title>Betterment Email Share</title><path fill-rule="evenodd" clip-rule="evenodd" d="M1 4H16V15H1V4ZM2.5 13.4286V7.53571L8.5 11.4643L14.5 7.53571V13.4286H2.5ZM14.5 5.57143H2.5L8.5 9.5L14.5 5.57143Z" /></svg>
+            </a>
+         </li>
+      
+
+      
+         <li class="copy-clip-container">
+            <button aria-label="Copy Post Link" class="bt-UnstyledButton copy-clip-button">
+               <svg viewbox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Betterment Clipboard Share"><title>Betterment Clipboard Share</title><path fill-rule="evenodd" clip-rule="evenodd" d="M2.53333 5.13332C2.83406 4.82896 3.19221 4.58731 3.58703 4.42238C3.98184 4.25746 4.40546 4.17253 4.83333 4.17253C5.26121 4.17253 5.68483 4.25746 6.07964 4.42238C6.47445 4.58731 6.8326 4.82896 7.13333 5.13332L9.03333 7.03332L8.2 7.86666L6.3 5.96666C5.89446 5.64917 5.38639 5.49179 4.87239 5.52443C4.35839 5.55707 3.87432 5.77746 3.5122 6.1437C3.15008 6.50993 2.93517 6.99647 2.90834 7.5108C2.88151 8.02514 3.04462 8.5314 3.36667 8.93332L5.26667 10.8L4.43333 11.6333L2.53333 9.73332C2.22897 9.43259 1.98732 9.07444 1.82239 8.67963C1.65746 8.28482 1.57254 7.8612 1.57254 7.43332C1.57254 7.00545 1.65746 6.58183 1.82239 6.18702C1.98732 5.79221 2.22897 5.43405 2.53333 5.13332V5.13332Z" /> <path fill-rule="evenodd" clip-rule="evenodd" d="M11.8667 14.4667C12.4733 13.8549 12.8136 13.0282 12.8136 12.1667C12.8136 11.3051 12.4733 10.4785 11.8667 9.86666L9.96667 7.96666L9.13334 8.79999L11.0333 10.7C11.4223 11.089 11.6408 11.6166 11.6408 12.1667C11.6408 12.7168 11.4223 13.2443 11.0333 13.6333C10.6444 14.0223 10.1168 14.2408 9.56667 14.2408C9.01656 14.2408 8.48899 14.0223 8.1 13.6333L6.2 11.7333L5.36667 12.5667L7.26667 14.4667C7.87847 15.0733 8.70513 15.4136 9.56667 15.4136C10.4282 15.4136 11.2549 15.0733 11.8667 14.4667V14.4667Z" /> <path fill-rule="evenodd" clip-rule="evenodd" d="M9.13334 12.5667L4.43333 7.86667L5.26667 7.03334L9.96667 11.7333L9.13334 12.5667V12.5667Z" /></svg>
+            </button>
+            <div class="copy-clip-confirmation">
+               <p>Copied!</p>
+            </div>
+         </li>
+      
+   </ul>
+   
+</div>
+
+</div>
+        </div>
+      </div>
+    </article>
+  </div>
+</main>
+
+
+
+
+  
+  
+    
+      
+    
+  
+    
+  
+  
+  
+
+
+  
+   
+      
+  <footer class="bt-section footer bg-navy white">
+    <div class="bt-container">
+      <div id="hs_cos_wrapper_module_16267052898241" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+  
+    
+    
+      
+    
+  
+      
+    
+      
+      
+                    
+          
+                    
+          
+                    
+          
+                    
+          
+                    
+          
+                    
+          
+        
+      
+      
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+      
+      
+                    
+          
+                    
+          
+                    
+          
+                    
+          
+                    
+          
+                    
+          
+        
+      
+      
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+      
+      
+                    
+          
+                    
+          
+                    
+          
+                    
+          
+                    
+          
+                    
+          
+        
+      
+      
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+      
+      
+                    
+          
+                    
+          
+                    
+          
+                    
+          
+                    
+          
+                    
+          
+                    
+          
+        
+      
+      
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+      
+      
+                    
+          
+                    
+          
+                    
+          
+                    
+          
+                    
+          
+                    
+          
+                    
+          
+                    
+          
+        
+      
+      
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+
+
+  <div class="footer-main-columns u-flex u-flexJustifyBetween">
+    <div class="footer-logo-wrapper">
+      <svg viewbox="0 0 91 74" width="35" height="29" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <title>Betterment Logo Icon SVG Footer</title>
+        <path d="M45.2571 60.0478C53.6288 63.0794 68.2782 68.3853 81.1967 73.0658C87.083 65.4792 90.5143 55.8131 90.5143 45.0369C90.5143 19.3603 71.0593 0 45.2571 0C19.4571 0 0 19.3603 0 45.0369C0 55.8153 3.42913 65.4792 9.31758 73.0658C22.26 68.3788 36.9311 63.0643 45.2571 60.0478Z" fill="#FFC729" />
+      </svg>
+    </div>
+  
+    
+    <nav class="footer-menu-wrapper" aria-label="footer navigation">
+      <ul>
+      
+        <li class="footer-menu_column footer-menu_column-0">
+          
+            <div class="footer-menu-title">Accounts</div>
+          
+
+          
+          <ul>
+          
+            <li>
+              <a class="footer__menu__item" href="../investing.html" target="" data-track-event="ElementClicked" data-track-name="Investing" data-track-module="Footer" data-interaction-listener-registered="true">Investing</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../ira-and-401k.html" target="" data-track-event="ElementClicked" data-track-name="IRAs and 401(k)s" data-track-module="Footer" data-interaction-listener-registered="true">IRAs and 401(k)s</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../roth-ira.html" target="" data-track-event="ElementClicked" data-track-name="Roth IRAs" data-track-module="Footer" data-interaction-listener-registered="true">Roth IRAs</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../cash-reserve.html" target="" data-track-event="ElementClicked" data-track-name="Cash Reserve" data-track-module="Footer" data-interaction-listener-registered="true">Cash Reserve</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../checking.html" target="" data-track-event="ElementClicked" data-track-name="Checking" data-track-module="Footer" data-interaction-listener-registered="true">Checking</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../trust-accounts.html" target="" data-track-event="ElementClicked" data-track-name="Trusts" data-track-module="Footer" data-interaction-listener-registered="true">Trusts</a>
+            </li>
+            
+          </ul>
+          
+        </li>
+      
+        <li class="footer-menu_column footer-menu_column-1">
+          
+            <div class="footer-menu-title">Investments</div>
+          
+
+          
+          <ul>
+          
+            <li>
+              <a class="footer__menu__item" href="../investments.html" target="" data-track-event="ElementClicked" data-track-name="Portfolio options" data-track-module="Footer" data-interaction-listener-registered="true">Portfolio options</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../socially-responsible-investing.html" target="" data-track-event="ElementClicked" data-track-name="Socially responsible investing" data-track-module="Footer" data-interaction-listener-registered="true">Socially responsible investing</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../tax-efficient-investing.html" target="" data-track-event="ElementClicked" data-track-name="Tax-smart investing" data-track-module="Footer" data-interaction-listener-registered="true">Tax-smart investing</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../charitable-giving/index.html" target="" data-track-event="ElementClicked" data-track-name="Charitable giving" data-track-module="Footer" data-interaction-listener-registered="true">Charitable giving</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../rollover.html" target="" data-track-event="ElementClicked" data-track-name="401(k) rollovers" data-track-module="Footer" data-interaction-listener-registered="true">401(k) rollovers</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../retirement-income.html" target="" data-track-event="ElementClicked" data-track-name="Retirement income" data-track-module="Footer" data-interaction-listener-registered="true">Retirement income</a>
+            </li>
+            
+          </ul>
+          
+        </li>
+      
+        <li class="footer-menu_column footer-menu_column-2">
+          
+            <div class="footer-menu-title">Tools</div>
+          
+
+          
+          <ul>
+          
+            <li>
+              <a class="footer__menu__item" href="../retirement.html" target="" data-track-event="ElementClicked" data-track-name="Retirement planning" data-track-module="Footer" data-interaction-listener-registered="true">Retirement planning</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../goals.html" target="" data-track-event="ElementClicked" data-track-name="Track your goals" data-track-module="Footer" data-interaction-listener-registered="true">Track your goals</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../dashboard.html" target="" data-track-event="ElementClicked" data-track-name="All-in-one dashboard" data-track-module="Footer" data-interaction-listener-registered="true">All-in-one dashboard</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../robo-advisor.html" target="" data-track-event="ElementClicked" data-track-name="Compare robo-advisors" data-track-module="Footer" data-interaction-listener-registered="true">Compare robo-advisors</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../rewards.html" target="" data-track-event="ElementClicked" data-track-name="Rewards" data-track-module="Footer" data-interaction-listener-registered="true">Rewards</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../referral.html" target="" data-track-event="ElementClicked" data-track-name="Refer-a-friend program" data-track-module="Footer" data-interaction-listener-registered="true">Refer-a-friend program</a>
+            </li>
+            
+          </ul>
+          
+        </li>
+      
+        <li class="footer-menu_column footer-menu_column-3">
+          
+            <div class="footer-menu-title">Help</div>
+          
+
+          
+          <ul>
+          
+            <li>
+              <a class="footer__menu__item" href="../help.html" target="" data-track-event="ElementClicked" data-track-name="Help center" data-track-module="Footer" data-interaction-listener-registered="true">Help center</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../help/tag/common-questions.html" target="" data-track-event="ElementClicked" data-track-name="FAQ" data-track-module="Footer" data-interaction-listener-registered="true">FAQ</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../financial-experts.html" target="" data-track-event="ElementClicked" data-track-name="Expert guidance" data-track-module="Footer" data-interaction-listener-registered="true">Expert guidance</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../resources/how-robo-advisors-guide-your-investing.html" target="" data-track-event="ElementClicked" data-track-name="Investment philosophy" data-track-module="Footer" data-interaction-listener-registered="true">Investment philosophy</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../resources.html" target="" data-track-event="ElementClicked" data-track-name="Article library" data-track-module="Footer" data-interaction-listener-registered="true">Article library</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../resources/video.html" target="" data-track-event="ElementClicked" data-track-name="Video" data-track-module="Footer" data-interaction-listener-registered="true">Video</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../legal.html" target="" data-track-event="ElementClicked" data-track-name="Legal" data-track-module="Footer" data-interaction-listener-registered="true">Legal</a>
+            </li>
+            
+          </ul>
+          
+        </li>
+      
+        <li class="footer-menu_column footer-menu_column-4">
+          
+            <div class="footer-menu-title">Company</div>
+          
+
+          
+          <ul>
+          
+            <li>
+              <a class="footer__menu__item" href="../pricing.html" target="" data-track-event="ElementClicked" data-track-name="Pricing" data-track-module="Footer" data-interaction-listener-registered="true">Pricing</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../about.html" target="" data-track-event="ElementClicked" data-track-name="About us" data-track-module="Footer" data-interaction-listener-registered="true">About us</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../mobile-app.html" target="" data-track-event="ElementClicked" data-track-name="Mobile app" data-track-module="Footer" data-interaction-listener-registered="true">Mobile app</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../how-it-works.html" target="" data-track-event="ElementClicked" data-track-name="How Betterment works" data-track-module="Footer" data-interaction-listener-registered="true">How Betterment works</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../roadmap.html" target="" data-track-event="ElementClicked" data-track-name="Product roadmap" data-track-module="Footer" data-interaction-listener-registered="true">Product roadmap</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../press.html" target="" data-track-event="ElementClicked" data-track-name="Press" data-track-module="Footer" data-interaction-listener-registered="true">Press</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="https://shop.betterment.com/" target="" data-track-event="ElementClicked" data-track-name="Betterment shop" data-track-module="Footer" data-interaction-listener-registered="true">Betterment shop</a>
+            </li>
+            
+            <li>
+              <a class="footer__menu__item" href="../careers.html" target="" data-track-event="ElementClicked" data-track-name="Careers" data-track-module="Footer" data-interaction-listener-registered="true">Careers</a>
+            </li>
+            
+          </ul>
+          
+        </li>
+      
+      </ul>
+    </nav>
+    
+  </div>
+
+  <div class="footer-bottom-menu">
+    <div class="footer-social-icons">
+      <ul class="flex">
+        <li>
+          <a href="https://www.instagram.com/betterment/" target="_blank" rel="noopener noreferrer"><svg aria-label="Betterment on Instagram" width="24" height="24" viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <title>Betterment on Instagram</title> <path d="M12 2.163C15.204 2.163 15.584 2.175 16.85 2.233C20.102 2.381 21.621 3.924 21.769 7.152C21.827 8.417 21.838 8.797 21.838 12.001C21.838 15.206 21.826 15.585 21.769 16.85C21.62 20.075 20.105 21.621 16.85 21.769C15.584 21.827 15.206 21.839 12 21.839C8.796 21.839 8.416 21.827 7.151 21.769C3.891 21.62 2.38 20.07 2.232 16.849C2.174 15.584 2.162 15.205 2.162 12C2.162 8.796 2.175 8.417 2.232 7.151C2.381 3.924 3.896 2.38 7.151 2.232C8.417 2.175 8.796 2.163 12 2.163ZM12 0C8.741 0 8.333 0.014 7.053 0.072C2.695 0.272 0.273 2.69 0.073 7.052C0.014 8.333 0 8.741 0 12C0 15.259 0.014 15.668 0.072 16.948C0.272 21.306 2.69 23.728 7.052 23.928C8.333 23.986 8.741 24 12 24C15.259 24 15.668 23.986 16.948 23.928C21.302 23.728 23.73 21.31 23.927 16.948C23.986 15.668 24 15.259 24 12C24 8.741 23.986 8.333 23.928 7.053C23.732 2.699 21.311 0.273 16.949 0.073C15.668 0.014 15.259 0 12 0V0ZM12 5.838C8.597 5.838 5.838 8.597 5.838 12C5.838 15.403 8.597 18.163 12 18.163C15.403 18.163 18.162 15.404 18.162 12C18.162 8.597 15.403 5.838 12 5.838ZM12 16C9.791 16 8 14.21 8 12C8 9.791 9.791 8 12 8C14.209 8 16 9.791 16 12C16 14.21 14.209 16 12 16ZM18.406 4.155C17.61 4.155 16.965 4.8 16.965 5.595C16.965 6.39 17.61 7.035 18.406 7.035C19.201 7.035 19.845 6.39 19.845 5.595C19.845 4.8 19.201 4.155 18.406 4.155Z" fill="currentColor"></path> </svg></a>
+        </li>
+        <li>
+          <a href="http://facebook.com/betterment" target="_blank" rel="noopener noreferrer"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16" aria-label="Betterment on Facebook" role="img"><title>Betterment on Facebook</title><path d="M9.5 3H12V0H9.5C7.5 0 6 1.6 6 3.5V5H4v3h2v8h3V8h2.5l.5-3H9V3.5c0-.3.2-.5.5-.5"></path></svg></a>
+        </li>
+        <li>
+          <a href="http://twitter.com/betterment" target="_blank" rel="noopener noreferrer"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16" aria-label="Betterment on Twitter" role="img"> <title>Betterment on Twitter</title> <path d="M16 2.7c-.6.3-1.2.5-1.9.5.7-.4 1.2-1 1.5-1.8a6 6 0 01-2.1.8 3.3 3.3 0 00-5.6 3A9.3 9.3 0 011 1.8a3.3 3.3 0 001 4.4c-.5 0-1-.2-1.5-.4 0 1.6 1.2 3 2.7 3.2a3.3 3.3 0 01-1.5 0 3.3 3.3 0 003 2.4A6.6 6.6 0 010 12.7a9.3 9.3 0 0014.4-8.3c.6-.4 1.2-1 1.6-1.7"></path> </svg></a>
+        </li>
+        <li>
+          <a href="http://www.linkedin.com/company/betterment" target="_blank" rel="noopener noreferrer"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16" aria-label="Betterment on LinkedIn" role="img"> <title>Betterment on LinkedIn</title> <path d="M.2 15.2h3.4V4.9H.2v10.3zM1.9 0C.8 0 0 .8 0 1.8s.7 1.8 1.9 1.8 2-.8 2-1.8S3 0 1.9 0zM16 9.3v5.9h-3.4V9.7c0-1.4-.5-2.3-1.8-2.3-1 0-1.5.6-1.7 1.2l-.1.9v5.7H5.5V4.9H9v1.5c.4-.7 1.2-1.7 3-1.7 2.3 0 4 1.5 4 4.6z"></path> </svg></a>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="footer-apps-icons">
+        <ul class="flex">
+          
+            <li>
+              <a class="track-ios-click" href="https://apps.apple.com/us/app/betterment-money-management/id393156562" target="_blank" rel="noopener noreferrer" data-behavior-app-store-link="" data-cy-apple-store-link="" data-appsflyer-source="retailBrochureFooter" data-track-event="AppStoreSelected" data-track-name="DownloadIOSAppStore" data-track-module="Footer">
+                <img class="lazy" data-src="https://www.betterment.com/hubfs/Graphics/shared-assets/app-store-badge_wht-bdr.svg" alt="apple-app-store">
+              </a>
+            </li>
+          
+          
+            <li>
+              <a class="track-google-play-click" href="https://play.google.com/store/apps/details?id=com.betterment" target="_blank" rel="noopener noreferrer" data-behavior-app-store-link="" data-cy-android-store-link="" data-android-store-link data-appsflyer-source="retailBrochureFooter" data-track-event="AppStoreSelected" data-track-name="DownloadGooglePlay" data-track-module="Footer">
+                <img class="lazy" data-src="https://www.betterment.com/hubfs/Graphics/shared-assets/google-play-badge-wht-bdr.svg" alt="google-play-store">
+              </a>
+            </li>
+        
+        </ul>
+      </div>
+    
+
+
+    
+    <div class="footer-bottom-links">
+    
+      <ul class="flex">
+        
+          
+            
+            
+            
+            
+
+          <li>
+            <a href="../contact.html" data-track-event="ElementClicked" data-track-name="Contact us" data-track-module="Footer" data-interaction-listener-registered="true">Contact us</a>
+          </li>
+        
+          
+            
+            
+            
+            
+
+          <li>
+            <a href="../work.html" data-track-event="ElementClicked" data-track-name="Betterment 401(k)" data-track-module="Footer" data-interaction-listener-registered="true">Betterment 401(k)</a>
+          </li>
+        
+          
+            
+            
+            
+            
+
+          <li>
+            <a href="../advisors.html" data-track-event="ElementClicked" data-track-name="Betterment for Advisors" data-track-module="Footer" data-interaction-listener-registered="true">Betterment for Advisors</a>
+          </li>
+        
+      </ul>
+    
+    </div>
+
+
+  </div>
+
+</div>
+
+      <div id="hs_cos_wrapper_module_16301570831873" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module"> 
+
+ 
+  
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <div class="footer-disclosure-wrap">
+    
+  
+  
+    
+   
+    
+      <div class="footer-disclosure-rows entity-disclosure"><p>This page is operated and maintained by Betterment Holdings Inc. and it is not associated with Betterment LLC or MTG LLC. © 2021 Betterment Holdings Inc.</p></div>
+    
+  
+    <div class="footer-disclosure-rows">
+      
+  
+<div>
+  <p> You are viewing a web property located at Betterment.com. Different properties may be provided by a different entity with different marketing standards. </p>
+  
+  
+  <ul class="flex-wrap list-links">
+    
+    <li>
+      <a href="../sitemap.html">Site Map</a>
+    </li>
+  
+    
+    <li>
+      <a href="../legal/terms.html">Terms of Use</a>
+    </li>
+  
+    
+    <li>
+      <a href="../legal/privacy-policy.html">Privacy Policy</a>
+    </li>
+  
+    
+    <li>
+      <a href="../legal/copyright-intellectual-property.html">Trademark</a>
+    </li>
+  
+    
+    <li>
+      <a href="../legal.html">Legal Directory</a>
+    </li>
+  
+  </ul>
+
+  <p>Google Play and the Google Play logo are trademarks of Google, Inc.</p>
+  <p>Apple, the Apple logo, and iPhone are trademarks of Apple, Inc., registered in the U.S.</p>
+  <p>Any links provided to other websites are offered as a matter of convenience and are not intended to imply that Betterment or its authors endorse, sponsor, promote, and/or are affiliated with the owners of or participants in those sites, unless stated otherwise.</p>
+  <p>© Betterment. All rights reserved</p>
+</div>
+
+
+    </div>
+  </div></div> 
+    </div> 
+  </footer>  
+
+    </div>
+    
+    
+    
+    
+    
+<script>
+(function () {
+    window.addEventListener('load', function () {
+        setTimeout(function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST.html', '/_hcms/perf', true /*async*/);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.onreadystatechange = function () {
+                // do nothing.
+            };
+            var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+            function populateNetworkInfo(name, connection, info) {
+                if (name in connection) {
+                    info[name] = connection[name];
+                }
+            }
+            var networkInfo = {};
+            if (connection) {
+                ['type', 'effectiveType', 'downlink', 'rtt'].forEach(function(name) {
+                    populateNetworkInfo(name, connection, networkInfo);
+                });
+            }
+            var perfData = {
+                url: location.href,
+                portal: 5274572,
+                content: 59718877846,
+                group: -1,
+                connection: networkInfo,
+                timing: performance.timing
+            };
+            xhr.send(JSON.stringify(perfData));
+        }, 3000);  // Execute this 3 seconds after onload.
+    });
+})();
+</script>
+
+<script src="../../cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../../cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.1/jquery-migrate.min.js"></script>
+
+      <script id="__ada" data-handle="betterment-cx" src="../../static.ada.support/embed2.js" data-lazy=""></script>
+    
+<script src="../hs-fs/hub/5274572/hub_generated/template_assets/57001203564/1664461384184/betterment-theme/resources/btTrackingInit.min.js"></script>
+<script src="../hs-fs/hub/5274572/hub_generated/template_assets/49666399874/1664461384009/betterment-theme/js/main.min.js"></script>
+<script>
+var hsVars = hsVars || {}; hsVars['language'] = 'en';
+</script>
+
+<script src="../hs/hsstatic/cos-i18n/static-1.53/bundles/project.js"></script>
+<script src="../hs-fs/hub/5274572/hub_generated/template_assets/54140855575/1646258612663/betterment-theme/js/custom-scripts/navigation.min.js"></script>
+<script src="../hs-fs/hub/5274572/hub_generated/module_assets/64614019605/1664467640221/module_64614019605_toast_banner_global.min.js"></script>
+
+
+<script>
+   $(".copy-clip-container").click(function() {
+      let clipContainer = $(this);
+      $(clipContainer).find('.copy-clip-confirmation').removeClass('copy-clip-confirmation--animate');
+      navigator.clipboard.writeText('why-betterment-is-using-julia.html').then(
+      function() 
+         { 
+            $(clipContainer).find('.copy-clip-confirmation').addClass('copy-clip-confirmation--animate');
+         }
+      );
+   });
+
+</script>
+
+<script src="../hs-fs/hub/5274572/hub_generated/template_assets/57077355813/1659471603755/betterment-theme/templates/engineering_blog/blog.min.js"></script>
+
+<!-- Start of HubSpot Analytics Code -->
+<script type="text/javascript">
+var _hsq = _hsq || [];
+_hsq.push(["setContentType", "blog-post"]);
+_hsq.push(["setCanonicalUrl", "https:\/\/www.betterment.com\/engineering\/why-betterment-is-using-julia"]);
+_hsq.push(["setPageId", "59718877846"]);
+_hsq.push(["setContentMetadata", {
+    "contentPageId": 59718877846,
+    "legacyPageId": "59718877846",
+    "contentFolderId": null,
+    "contentGroupId": 57138234906,
+    "abTestId": null,
+    "languageVariantId": 59718877846,
+    "languageCode": "en",
+    
+}]);
+</script>
+
+<script type="text/javascript" id="hs-script-loader" async defer src="../hs/scriptloader/5274572.js"></script>
+<!-- End of HubSpot Analytics Code -->
+
+
+<script type="text/javascript">
+var hsVars = {
+    ticks: 1664470793167,
+    page_id: 59718877846,
+    
+    content_group_id: 57138234906,
+    portal_id: 5274572,
+    app_hs_base_url: "https://app.hubspot.com",
+    cp_hs_base_url: "https://cp.hubspot.com",
+    language: "en",
+    analytics_page_type: "blog-post",
+    analytics_page_id: "59718877846",
+    category_id: 3,
+    folder_id: 0,
+    is_hubspot_user: false
+}
+</script>
+
+
+<script defer src="../hs/hsstatic/HubspotToolsMenu/static-1.138/js/index.js"></script>
+
+
+
+<div id="fb-root"></div>
+ <script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "../../connect.facebook.net/en_GB/all.js#xfbml=1&status=0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+ <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="../../platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+ 
+
+
+  
+</body>
+<!-- Mirrored from www.betterment.com/engineering/why-betterment-is-using-julia by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Sep 2022 12:43:41 GMT -->
+</html>
