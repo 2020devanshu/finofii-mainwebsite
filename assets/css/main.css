@@ -660,3 +660,11 @@ p {
     margin-top: 0px !important;
   }
 }
+
+.zoom {
+  transition: transform 0.2s; /* Animation */
+}
+
+.zoom:hover {
+  transform: scale(1.1);
+}
