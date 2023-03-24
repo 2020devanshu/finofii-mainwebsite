@@ -194,26 +194,20 @@
 
 .w0,.w1,.w2,.w3,.w4,.w5,.w6,.w7{
   width:70%;
-  display:block;
+ 
   overflow:hidden;
   margin:0 auto;
   padding: 60px 50px;
   background:#fff;
   border-radius:4px;
-  display:none;
+
 }
-.w0{
-  width:70%;
-  display:block;
-  overflow:hidden;
-  margin:0 auto;
-  padding: 60px 50px;
-  background:#fff;
-  border-radius:4px;
-  display:block;
-}
+
 .bt-ContentGrid-item.row-2.u-col-12.u-col-10\@lg.graph {
     display: none;
+}
+a.show.btn.btn-primary.bt1 {
+    margin: 6px;
 }
 .buttonss {
     text-align: center;
@@ -275,14 +269,25 @@ button.button.button5.tt3 {
     background: #008d93;
     border: #008d93;
 }
+div#myDIV3311 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+a.show.btn.btn-primary.bt1.active {
+    background: grey;
+}
 
 /* Style the active class, and buttons on mouse-over */
 .active, .bt1:hover {
   background-color: #666;
   color: white;
 }
+section.hero.mt-0.py-5.mobileview {
+    display: none;
+}
 @media screen and (min-device-width: 250px) and (max-device-width: 768px) { 
-  .w0,.w1,.w2,.w3,.w4,.w5,.w6,.w7 {
+  .a0,.a1,.a2,.a3,.a4,.a5,.a6,.a7 {
     width: 100%;
 }
 .barheight {
@@ -293,6 +298,20 @@ button.btn.btn-primary.bt1 {
 }
 button.btn.btn-primary.bt1 {
     font-size: 15px;
+}
+section.hero.mt-0.py-5.desktopview {
+    display: none;
+}
+section.hero.mt-0.py-5.mobileview {
+    display: block;
+}
+.a0,.a1,.a2,.a3,.a4,.a5,.a6,.a7{
+  
+  display:none;
+}
+.a0{
+ 
+  display:block;
 }
 }
 </style>
@@ -949,20 +968,29 @@ button.btn.btn-primary.bt1 {
             </div>
             <!--end row-->
           </div>
-          <section class="hero mt-0 py-5" >
+          <section class="hero mt-0 py-5 desktopview" >
           
-              <div class="buttonss" id="myDIV33">
-                <button type="button" class="btn btn-primary bt1 active" onclick="show('id1');">7 Days</button>
-                <button type="button" class="btn btn-primary bt1" onclick="show('id2');">15 Days</button>
-                <button type="button" class="btn btn-primary bt1" onclick="show('id3');">30 Days</button>
-                <button type="button" class="btn btn-primary bt1" onclick="show('id4');">60 Days</button>
-                <button type="button" class="btn btn-primary bt1" onclick="show('id5');">90 Days</button>
-                <button type="button" class="btn btn-primary bt1" onclick="show('id6');">180 Days</button>
-                <button type="button" class="btn btn-primary bt1"onclick="show('id7');">270 Days</button>
-                <button type="button" class="btn btn-primary bt1" onclick="show('id8');">365 Days</button>
+              
+                <div class="buttons" id="myDIV3311">
+                <!-- <button type="button" target="1" class="btn btn-primary show bt1 active" >7 Days</button>
+                <button type="button" target="2"  class="btn btn-primary show bt1" >15 Days</button>
+                <button type="button" target="3" class="btn btn-primary show bt1">30 Days</button>
+                <button type="button" target="4" class="btn btn-primary show bt1" >60 Days</button>
+                <button type="button" target="5" class="btn btn-primary show bt1" >90 Days</button>
+                <button type="button" target="6" class="btn btn-primary show bt1" >180 Days</button>
+                <button type="button" target="7" class="btn btn-primary show bt1">270 Days</button>
+                <button type="button" target="8" class="btn btn-primary show bt1">365 Days</button> -->
+                <a  class="show btn btn-primary  bt1 active" target="1">7 Days</a>
+                <a  class="show btn btn-primary  bt1" target="2">15 Days</a>
+                <a  class="show btn btn-primary  bt1" target="3">30 Days</a>
+                <a  class="show btn btn-primary  bt1" target="4">60 Days</a>
+                <a  class="show btn btn-primary  bt1" target="5">90 Days</a>
+                <a  class="show btn btn-primary  bt1" target="6">180 Days</a>
+                <a  class="show btn btn-primary bt1" target="7">270 Days</a>
+                <a  class="show btn btn-primary  bt1" target="8">365 Days</a>
               </div>
-              <div class="hero">
-                <div class=" hero w0" id="id1">
+             
+                <div class="w0"   id="div1">
                   <h2 class="text_center">7 Days Data</h2>
                 <canvas class="col-lg-12 barheight  mt-0 py-5" id="myChart4"></canvas>
                 
@@ -982,9 +1010,9 @@ button.btn.btn-primary.bt1 {
                 
                 
                 </div>
-              </div>
-               <div class="hero">
-                <div class="hero w1" id="id2">
+            
+           
+                <div class="w0" style="display:none;" id="div2">
                   <h2 class="text_center">15 Days Data</h2>
                 <canvas class="barheight" id="myChart5"></canvas>
       
@@ -1000,9 +1028,9 @@ button.btn.btn-primary.bt1 {
                   <span class="opdata">Finofii</span>
             </div>
                 </div>
-              </div>
-              <div class="hero">
-                <div class="hero w2" id="id3">
+            
+            
+                <div class="w0" style="display:none;" id="div3">
                   <h2 class="text_center">30 Days Data</h2>
                 <canvas class="barheight" id="myChart6"></canvas>
       
@@ -1018,9 +1046,9 @@ button.btn.btn-primary.bt1 {
                   <span class="opdata">Finofii</span>
             </div>
                 </div>
-              </div>
-              <div class="hero">
-                <div class="hero w3" id="id4">
+            
+             
+                <div class="w0" style="display:none;" id="div4">
                   <h2 class="text_center">60 Days Data</h2>
                 <canvas class="barheight" id="myChart7"></canvas>
       
@@ -1036,9 +1064,9 @@ button.btn.btn-primary.bt1 {
                   <span class="opdata">Finofii</span>
             </div>
                 </div>
-              </div>
-              <div class="hero">
-                <div class="hero w4" id="id5">
+             
+             
+                <div class="w0" style="display:none;" id="div5">
                   <h2 class="text_center">90 Days Data</h2>
                 <canvas class="barheight" id="myChart8"></canvas>
       
@@ -1054,9 +1082,9 @@ button.btn.btn-primary.bt1 {
                   <span class="opdata">Finofii</span>
             </div>
                 </div>
-                </div>
-                <div class="hero">
-                <div class="hero w5" id="id6">
+                
+                
+                <div class="w0" style="display:none;" id="div6">
                   <h2 class="text_center">180 Days Data</h2>
                 <canvas class="barheight" id="myChart9"></canvas>
       
@@ -1072,9 +1100,9 @@ button.btn.btn-primary.bt1 {
                  <span class="opdata">Finofii</span>
             </div>
                 </div>
-              </div>
-              <div class="hero">
-                <div class="hero w6" id="id7">
+             
+             
+                <div class="w0" style="display:none;" id="div7">
                   <h2 class="text_center">270 Days Data</h2>
                 <canvas class="barheight" id="myChart10"></canvas>
       
@@ -1090,9 +1118,9 @@ button.btn.btn-primary.bt1 {
                   <span class="opdata">Finofii</span>
             </div>
                 </div>
-              </div>
-              <div class="hero">
-                <div class="hero w7" id="id8">
+              
+            
+                <div class="w0" style="display:none;" id="div8">
                   <h2 class="text_center">365 Days Data</h2>
                 <canvas class="barheight" id="myChart11"></canvas>
       
@@ -1108,7 +1136,7 @@ button.btn.btn-primary.bt1 {
                  <span class="opdata">Finofii</span>
             </div>
                 </div>
-              </div>
+           
                 <script>
                     var ctx = document.getElementById("myChart4").getContext('2d');
                 var myChart = new Chart(ctx, {
@@ -1123,7 +1151,7 @@ button.btn.btn-primary.bt1 {
                     }, {
                       label: '',
                       backgroundColor: "#45c490",
-                      data: [5, 7, 9, 11, 13,15, 17, 19, 21,23],
+                      data: [10011986, 20023972, 30035958, 40047945, 50059931,60071917, 70083904, 80095890, 90107876,100119863],
                     }, {
                       label: '',
                       backgroundColor: "#008d93",
@@ -1163,7 +1191,7 @@ button.btn.btn-primary.bt1 {
                         },
                         ticks: {
                          
-                          fontSize: 12,
+                          fontSize: 18,
                         },
                       }],
                       yAxes: [{
@@ -1194,7 +1222,7 @@ button.btn.btn-primary.bt1 {
                     }, {
                       label: '',
                       backgroundColor: "#45c490",
-                      data: [7, 9, 11, 13, 15,17, 19, 20, 23,25],
+                      data: [10025684, 20051369, 30077054, 40102739, 50128424,60154109, 70179794, 80205479, 90231164,100256849],
                     }, {
                       label: '',
                       backgroundColor: "#008d93",
@@ -1228,7 +1256,7 @@ button.btn.btn-primary.bt1 {
                         },
                         ticks: {
                          
-                         fontSize: 12,
+                         fontSize: 18,
                        },
                       }],
                       yAxes: [{
@@ -1259,7 +1287,7 @@ button.btn.btn-primary.bt1 {
                     }, {
                       label: '',
                       backgroundColor: "#45c490",
-                      data: [9, 11, 13, 15, 17,19, 21, 23, 25,27],
+                      data: [10051369, 20102739, 30154109, 40205479, 50256849,60308219, 70359589, 80410958, 90462328,100513698],
                     }, {
                       label: '',
                       backgroundColor: "#008d93",
@@ -1290,7 +1318,7 @@ button.btn.btn-primary.bt1 {
                         },
                         ticks: {
                          
-                         fontSize: 12,
+                         fontSize: 18,
                        },
                       }],
                       yAxes: [{
@@ -1321,7 +1349,7 @@ button.btn.btn-primary.bt1 {
                     }, {
                       label: '',
                       backgroundColor: "#45c490",
-                      data: [11, 13, 15, 17, 19,21, 23, 25, 27,29],
+                      data: [10102739, 20205479, 30308219, 40410958, 50513698,60616438, 70719178, 80821917, 90924657,101027397],
                     }, {
                       label: '',
                       backgroundColor: "#008d93",
@@ -1352,7 +1380,7 @@ button.btn.btn-primary.bt1 {
                         },
                         ticks: {
                          
-                         fontSize: 12,
+                         fontSize: 18,
                        },
                       }],
                       yAxes: [{
@@ -1383,7 +1411,7 @@ button.btn.btn-primary.bt1 {
                     }, {
                       label: '',
                       backgroundColor: "#45c490",
-                      data: [13, 15, 17, 19, 21,23, 25, 27, 29,31],
+                      data: [10154109, 20308219, 30462328, 40616438, 50770547,60924657, 71078767, 81232876, 91386986,101541095],
                     }, {
                       label: '',
                       backgroundColor: "#008d93",
@@ -1414,7 +1442,7 @@ button.btn.btn-primary.bt1 {
                         },
                         ticks: {
                          
-                         fontSize: 12,
+                         fontSize: 18,
                        },
                       }],
                       yAxes: [{
@@ -1445,7 +1473,7 @@ button.btn.btn-primary.bt1 {
                     }, {
                       label: '',
                       backgroundColor: "#45c490",
-                      data: [15, 17, 19, 21, 23,25, 27, 29, 31,33],
+                      data: [10308219, 20616438, 30924657, 41232876, 51541095,61849315, 72157534, 82465753, 92773972,103082191],
                     }, {
                       label: '',
                       backgroundColor: "#008d93",
@@ -1476,7 +1504,7 @@ button.btn.btn-primary.bt1 {
                         },
                         ticks: {
                          
-                         fontSize: 12,
+                         fontSize: 18,
                        },
                       }],
                       yAxes: [{
@@ -1507,7 +1535,7 @@ button.btn.btn-primary.bt1 {
                     }, {
                       label: '',
                       backgroundColor: "#45c490",
-                      data: [17, 19, 21, 23, 25,27, 29, 31, 33,35],
+                      data: [10462328, 20924657, 31386986, 41849315, 52311643,62773972, 73236301, 83698630, 94160958,104623287],
                     }, {
                       label: '',
                       backgroundColor: "#008d93",
@@ -1538,7 +1566,7 @@ button.btn.btn-primary.bt1 {
                         },
                         ticks: {
                          
-                         fontSize: 12,
+                         fontSize: 18,
                        },
                       }],
                       yAxes: [{
@@ -1569,7 +1597,7 @@ button.btn.btn-primary.bt1 {
                     }, {
                       label: '',
                       backgroundColor: "#45c490",
-                      data: [19, 21, 23, 25, 27,29, 31, 33, 35,37],
+                      data: [10625000, 21250000, 31875000, 42500000, 53125000,63750000, 74375000, 85000000, 95625000,106250000],
                     }, {
                       label: '',
                       backgroundColor: "#008d93",
@@ -1600,7 +1628,7 @@ button.btn.btn-primary.bt1 {
                         },
                         ticks: {
                          
-                         fontSize: 12,
+                         fontSize: 18,
                        },
                       }],
                       yAxes: [{
@@ -1619,21 +1647,25 @@ button.btn.btn-primary.bt1 {
                 });
                 </script>
                 <script type="text/javascript">
-                    function show(elementId) { 
-                     document.getElementById("id1").style.display="none";
-                     document.getElementById("id2").style.display="none";
-                     document.getElementById("id3").style.display="none";
-                     document.getElementById("id4").style.display="none";
-                     document.getElementById("id5").style.display="none";
-                     document.getElementById("id6").style.display="none";
-                     document.getElementById("id7").style.display="none";
-                     document.getElementById("id8").style.display="none";
-                     document.getElementById(elementId).style.display="block";
-                    }
+                    // function show(elementId) { 
+                    //  document.getElementById("id1").style.display="none";
+                    //  document.getElementById("id2").style.display="none";
+                    //  document.getElementById("id3").style.display="none";
+                    //  document.getElementById("id4").style.display="none";
+                    //  document.getElementById("id5").style.display="none";
+                    //  document.getElementById("id6").style.display="none";
+                    //  document.getElementById("id7").style.display="none";
+                    //  document.getElementById("id8").style.display="none";
+                    //  document.getElementById(elementId).style.display="block";
+                    // }
+                    $('.show').click(function () {
+                      $('.w0').hide();
+                      $('#div' + $(this).attr('target')).show();
+                });
                     </script>
                     <script>
                       // Add active class to the current button (highlight it)
-                      var header = document.getElementById("myDIV33");
+                      var header = document.getElementById("myDIV3311");
                       var btns = header.getElementsByClassName("bt1");
                       for (var i = 0; i < btns.length; i++) {
                         btns[i].addEventListener("click", function() {
@@ -1645,6 +1677,707 @@ button.btn.btn-primary.bt1 {
                       </script>
             
           </section>
+
+
+
+
+
+          <section class="hero mt-0 py-5 mobileview" >
+          
+            <div class="buttonss" id="myDIV33">
+              <button type="button" class="btn btn-primary bt1 active" onclick="show('id11');">7 Days</button>
+              <button type="button" class="btn btn-primary bt1" onclick="show('id21');">15 Days</button>
+              <button type="button" class="btn btn-primary bt1" onclick="show('id31');">30 Days</button>
+              <button type="button" class="btn btn-primary bt1" onclick="show('id41');">60 Days</button>
+              <button type="button" class="btn btn-primary bt1" onclick="show('id51');">90 Days</button>
+              <button type="button" class="btn btn-primary bt1" onclick="show('id61');">180 Days</button>
+              <button type="button" class="btn btn-primary bt1"onclick="show('id71');">270 Days</button>
+              <button type="button" class="btn btn-primary bt1" onclick="show('id81');">365 Days</button>
+            </div>
+            <div class="hero">
+              <div class=" col-lg-12 a0" id="id11">
+                <h2 class="text_center">7 Days Data</h2>
+              <canvas class="col-lg-12 barheight  mt-0 py-5" id="myChart42"></canvas>
+              
+    <!-- <div class="hide_content"></div> -->
+      
+    <div class="buttonss1" data-toggle="buttons">
+         
+            <button class="button button5 tt1"></button> 
+          <span class="opdata">Current Account</span>
+       
+            <button class="button button5 tt2"></button> 
+         <span class="opdata">Fixed Deposit</span>
+        
+            <button class="button button5  tt3"></button> 
+         <span class="opdata">Finofii</span>
+    </div>
+              
+              
+              </div>
+            </div>
+             <div class="hero">
+              <div class="col-lg-12 a1" id="id21">
+                <h2 class="text_center">15 Days Data</h2>
+              <canvas class="barheight" id="myChart52"></canvas>
+    
+              <div class="buttonss1" data-toggle="buttons">
+               
+                  <button class="button button5 tt1"></button> 
+               <span class="opdata">Current Account</span>
+               
+                  <button class="button button5 tt2"></button>
+               <span class="opdata">Fixed Deposit</span>
+               
+                  <button class="button button5 tt3"></button> 
+                <span class="opdata">Finofii</span>
+          </div>
+              </div>
+            </div>
+            <div class="hero">
+              <div class="col-lg-12 a2" id="id31">
+                <h2 class="text_center">30 Days Data</h2>
+              <canvas class="barheight" id="myChart62"></canvas>
+    
+              <div class="buttonss1" data-toggle="buttons">
+              
+                  <button class="button button5 tt1"></button> 
+               <span class="opdata">Current Account</span>
+               
+                  <button class="button button5 tt2"></button>
+                <span class="opdata">Fixed Deposit</span>
+               
+                  <button class="button button5 tt3"></button>
+                <span class="opdata">Finofii</span>
+          </div>
+              </div>
+            </div>
+            <div class="hero">
+              <div class="col-lg-12 a3" id="id41">
+                <h2 class="text_center">60 Days Data</h2>
+              <canvas class="barheight" id="myChart72"></canvas>
+    
+              <div class="buttonss1" data-toggle="buttons">
+               
+                  <button class="button button5 tt1"></button> 
+                <span class="opdata">Current Account</span>
+               
+                  <button class="button button5 tt2"></button>
+                <span class="opdata">Fixed Deposit</span>
+               
+                  <button class="button button5 tt3"></button> 
+                <span class="opdata">Finofii</span>
+          </div>
+              </div>
+            </div>
+            <div class="hero">
+              <div class="col-lg-12 a4" id="id51">
+                <h2 class="text_center">90 Days Data</h2>
+              <canvas class="barheight" id="myChart82"></canvas>
+    
+              <div class="buttonss1" data-toggle="buttons">
+               
+                  <button class="button button5 tt1"></button> 
+                <span class="opdata">Current Account</span>
+               
+                  <button class="button button5 tt2"></button> 
+               <span class="opdata">Fixed Deposit</span>
+               
+                  <button class="button button5 tt3"></button> 
+                <span class="opdata">Finofii</span>
+          </div>
+              </div>
+              </div>
+              <div class="hero">
+              <div class="col-lg-12 a5" id="id61">
+                <h2 class="text_center">180 Days Data</h2>
+              <canvas class="barheight" id="myChart92"></canvas>
+    
+              <div class="buttonss1" data-toggle="buttons">
+               
+                  <button class="button button5 tt1"></button> 
+                <span class="opdata">Current Account</span>
+                
+                  <button class="button button5 tt2"></button> 
+               <span class="opdata">Fixed Deposit</span>
+              
+                  <button class="button button5 tt3"></button>
+               <span class="opdata">Finofii</span>
+          </div>
+              </div>
+            </div>
+            <div class="hero">
+              <div class="col-lg-12 a6" id="id71">
+                <h2 class="text_center">270 Days Data</h2>
+              <canvas class="barheight" id="myChart102"></canvas>
+    
+              <div class="buttonss1" data-toggle="buttons">
+               
+                  <button class="button button5 tt1"></button> 
+               <span class="opdata">Current Account</span>
+               
+                  <button class="button button5 tt2"></button>
+                <span class="opdata">Fixed Deposit</span>
+             
+                  <button class="button button5 tt3"></button>
+                <span class="opdata">Finofii</span>
+          </div>
+              </div>
+            </div>
+            <div class="hero">
+              <div class="col-lg-12 a7" id="id81">
+                <h2 class="text_center">365 Days Data</h2>
+              <canvas class="barheight" id="myChart112"></canvas>
+    
+              <div class="buttonss1" data-toggle="buttons">
+                
+                  <button class="button button5 tt1"></button> 
+                <span class="opdata">Current Account</span>
+                
+                  <button class="button button5 tt2"></button>> 
+                <span class="opdata">Fixed Deposit</span>
+               
+                  <button class="button button5 tt3"></button>
+               <span class="opdata">Finofii</span>
+          </div>
+              </div>
+            </div>
+              <script>
+                  var ctx = document.getElementById("myChart42").getContext('2d');
+              var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                  labels: ["1 Cr","2 Cr","3 Cr","4 Cr","5 Cr","6 Cr","7 Cr","8 Cr","9 Cr","10 Cr"],
+                  datasets: [{
+                    label: '',
+                    backgroundColor: "#caf270",
+                    
+                    data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                  }, {
+                    label: '',
+                    backgroundColor: "#45c490",
+                    data: [10011986, 20023972, 30035958, 40047945, 50059931,60071917, 70083904, 80095890, 90107876,100119863],
+                  }, {
+                    label: '',
+                    backgroundColor: "#008d93",
+                    data: [10205205, 20410410, 30615616, 40820821, 51026027,61231232, 71436438, 81641643, 91846849,102052054],
+                  }],
+                },
+              options: {
+                  tooltips: {
+                    fontSize:20,
+                    displayColors: true,
+                    callbacks:{
+                      mode: 'x',
+                    },
+                  },
+                  animations: {
+          tension: {
+            duration: 1000,
+            easing: 'linear',
+            from: 1,
+            to: 0,
+            loop: true
+          }
+        },
+                  
+                  plugins: {
+                legend: {
+                   labels:{
+                    boxWidht:0
+                   },
+                },
+            },
+                  scales: {
+                    xAxes: [{
+                      stacked: true,
+                      gridLines: {
+                        display: false,
+                      },
+                      ticks: {
+                       
+                        fontSize: 18,
+                      },
+                    }],
+                    yAxes: [{
+                      stacked: true,
+                      ticks: {
+                        beginAtZero: true,
+                        fontSize: 18,
+                      },
+                      type: 'linear',
+                    }]
+                  },
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  legend: { position: 'none' },
+                }
+              });
+              </script>
+              <script>
+                  var ctx = document.getElementById("myChart52").getContext('2d');
+              var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                  labels: ["1 Cr","2 Cr","3 Cr","4 Cr","5 Cr","6 Cr","7 Cr","8 Cr","9 Cr","10 Cr"],
+                  datasets: [{
+                    label: '',
+                    backgroundColor: "#caf270",
+                    data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                  }, {
+                    label: '',
+                    backgroundColor: "#45c490",
+                    data: [10025684, 20051369, 30077054, 40102739, 50128424,60154109, 70179794, 80205479, 90231164,100256849],
+                  }, {
+                    label: '',
+                    backgroundColor: "#008d93",
+                    data: [10439726, 20879452, 31319178, 41758904, 52198630,62638356, 73078082, 83517808, 93957534,104397260],
+                  }],
+                },
+              options: {
+                  tooltips: {
+                    displayColors: true,
+                    callbacks:{
+                      mode: 'x',
+                    },
+                  },
+                  legend: {
+        display: false
+      },
+      animations: {
+          tension: {
+            duration: 1000,
+            easing: 'linear',
+            from: 1,
+            to: 0,
+            loop: true
+          }
+        },
+                  scales: {
+                    xAxes: [{
+                      stacked: true,
+                      gridLines: {
+                        display: false,
+                      },
+                      ticks: {
+                       
+                       fontSize: 18,
+                     },
+                    }],
+                    yAxes: [{
+                      stacked: true,
+                      ticks: {
+                        beginAtZero: true,
+                        fontSize:18,
+                      },
+                      type: 'linear',
+                    }]
+                  },
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  legend: { position: 'none' },
+                }
+              });
+              </script>
+              <script>
+                  var ctx = document.getElementById("myChart62").getContext('2d');
+              var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                  labels: ["1 Cr","2 Cr","3 Cr","4 Cr","5 Cr","6 Cr","7 Cr","8 Cr","9 Cr","10 Cr"],
+                  datasets: [{
+                    label: '',
+                    backgroundColor: "#caf270",
+                    data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                  }, {
+                    label: '',
+                    backgroundColor: "#45c490",
+                    data: [10051369, 20102739, 30154109, 40205479, 50256849,60308219, 70359589, 80410958, 90462328,100513698],
+                  }, {
+                    label: '',
+                    backgroundColor: "#008d93",
+                    data: [10879452, 21758904, 32638356, 43517808, 54397260,65276712, 76156164, 87035616, 97915068,108794520],
+                  }],
+                },
+              options: {
+                  tooltips: {
+                    displayColors: true,
+                    callbacks:{
+                      mode: 'x',
+                    },
+                  },
+                  animations: {
+          tension: {
+            duration: 1000,
+            easing: 'linear',
+            from: 1,
+            to: 0,
+            loop: true
+          }
+        },
+                  scales: {
+                    xAxes: [{
+                      stacked: true,
+                      gridLines: {
+                        display: false,
+                      },
+                      ticks: {
+                       
+                       fontSize: 18,
+                     },
+                    }],
+                    yAxes: [{
+                      stacked: true,
+                      ticks: {
+                        beginAtZero: true,
+                        fontSize:18,
+                      },
+                      type: 'linear',
+                    }]
+                  },
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  legend: { position: 'none' },
+                }
+              });
+              </script>
+              <script>
+                  var ctx = document.getElementById("myChart72").getContext('2d');
+              var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                  labels: ["1 Cr","2 Cr","3 Cr","4 Cr","5 Cr","6 Cr","7 Cr","8 Cr","9 Cr","10 Cr"],
+                  datasets: [{
+                    label: '',
+                    backgroundColor: "#caf270",
+                    data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                  }, {
+                    label: '',
+                    backgroundColor: "#45c490",
+                    data: [10102739, 20205479, 30308219, 40410958, 50513698,60616438, 70719178, 80821917, 90924657,101027397],
+                  }, {
+                    label: '',
+                    backgroundColor: "#008d93",
+                    data: [11758904, 23517808, 35276712, 47035616, 58794520,70553424, 82312328, 94071232, 105830136,117589041],
+                  }],
+                },
+              options: {
+                  tooltips: {
+                    displayColors: true,
+                    callbacks:{
+                      mode: 'x',
+                    },
+                  },
+                  animations: {
+          tension: {
+            duration: 1000,
+            easing: 'linear',
+            from: 1,
+            to: 0,
+            loop: true
+          }
+        },
+                  scales: {
+                    xAxes: [{
+                      stacked: true,
+                      gridLines: {
+                        display: false,
+                      },
+                      ticks: {
+                       
+                       fontSize: 18,
+                     },
+                    }],
+                    yAxes: [{
+                      stacked: true,
+                      ticks: {
+                        beginAtZero: true,
+                        fontSize:18,
+                      },
+                      type: 'linear',
+                    }]
+                  },
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  legend: { position: 'none' },
+                }
+              });
+              </script>
+              <script>
+                  var ctx = document.getElementById("myChart82").getContext('2d');
+              var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                  labels: ["1 Cr","2 Cr","3 Cr","4 Cr","5 Cr","6 Cr","7 Cr","8 Cr","9 Cr","10 Cr"],
+                  datasets: [{
+                    label: '',
+                    backgroundColor: "#caf270",
+                    data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                  }, {
+                    label: '',
+                    backgroundColor: "#45c490",
+                    data: [10154109, 20308219, 30462328, 40616438, 50770547,60924657, 71078767, 81232876, 91386986,101541095],
+                  }, {
+                    label: '',
+                    backgroundColor: "#008d93",
+                    data: [12638356, 25276712, 37915068, 50553424, 63191780,75830136, 88468493, 101106849, 113745205,126383561],
+                  }],
+                },
+              options: {
+                  tooltips: {
+                    displayColors: true,
+                    callbacks:{
+                      mode: 'x',
+                    },
+                  },
+                  animations: {
+          tension: {
+            duration: 1000,
+            easing: 'linear',
+            from: 1,
+            to: 0,
+            loop: true
+          }
+        },
+                  scales: {
+                    xAxes: [{
+                      stacked: true,
+                      gridLines: {
+                        display: false,
+                      },
+                      ticks: {
+                       
+                       fontSize: 18,
+                     },
+                    }],
+                    yAxes: [{
+                      stacked: true,
+                      ticks: {
+                        beginAtZero: true,
+                        fontSize:18,
+                      },
+                      type: 'linear',
+                    }]
+                  },
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  legend: { position: 'none' },
+                }
+              });
+              </script>
+              <script>
+                  var ctx = document.getElementById("myChart92").getContext('2d');
+              var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                  labels: ["1 Cr","2 Cr","3 Cr","4 Cr","5 Cr","6 Cr","7 Cr","8 Cr","9 Cr","10 Cr"],
+                  datasets: [{
+                    label: '',
+                    backgroundColor: "#caf270",
+                    data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                  }, {
+                    label: '',
+                    backgroundColor: "#45c490",
+                    data: [10308219, 20616438, 30924657, 41232876, 51541095,61849315, 72157534, 82465753, 92773972,103082191],
+                  }, {
+                    label: '',
+                    backgroundColor: "#008d93",
+                    data: [15276712, 30553424, 45830136, 61106849, 76383561,91660273, 106936986, 122213698, 137490410,152767123],
+                  }],
+                },
+              options: {
+                  tooltips: {
+                    displayColors: true,
+                    callbacks:{
+                      mode: 'x',
+                    },
+                  },
+                  animations: {
+          tension: {
+            duration: 1000,
+            easing: 'linear',
+            from: 1,
+            to: 0,
+            loop: true
+          }
+        },
+                  scales: {
+                    xAxes: [{
+                      stacked: true,
+                      gridLines: {
+                        display: false,
+                      },
+                      ticks: {
+                       
+                       fontSize: 18,
+                     },
+                    }],
+                    yAxes: [{
+                      stacked: true,
+                      ticks: {
+                        beginAtZero: true,
+                        fontSize:18,
+                      },
+                      type: 'linear',
+                    }]
+                  },
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  legend: { position: 'none' },
+                }
+              });
+              </script>
+              <script>
+                  var ctx = document.getElementById("myChart102").getContext('2d');
+              var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                  labels: ["1 Cr","2 Cr","3 Cr","4 Cr","5 Cr","6 Cr","7 Cr","8 Cr","9 Cr","10 Cr"],
+                  datasets: [{
+                    label: '',
+                    backgroundColor: "#caf270",
+                    data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                  }, {
+                    label: '',
+                    backgroundColor: "#45c490",
+                    data: [10462328, 20924657, 31386986, 41849315, 52311643,62773972, 73236301, 83698630, 94160958,104623287],
+                  }, {
+                    label: '',
+                    backgroundColor: "#008d93",
+                    data: [17915068, 35830136, 53745205, 71660273, 89575342,107490410, 125405479, 143320547, 161235616,179150684],
+                  }],
+                },
+              options: {
+                  tooltips: {
+                    displayColors: true,
+                    callbacks:{
+                      mode: 'x',
+                    },
+                  },
+                  animations: {
+          tension: {
+            duration: 1000,
+            easing: 'linear',
+            from: 1,
+            to: 0,
+            loop: true
+          }
+        },
+                  scales: {
+                    xAxes: [{
+                      stacked: true,
+                      gridLines: {
+                        display: false,
+                      },
+                      ticks: {
+                       
+                       fontSize: 18,
+                     },
+                    }],
+                    yAxes: [{
+                      stacked: true,
+                      ticks: {
+                        beginAtZero: true,
+                        fontSize:18,
+                      },
+                      type: 'linear',
+                    }]
+                  },
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  legend: { position: 'none' },
+                }
+              });
+              </script>
+              <script>
+                  var ctx = document.getElementById("myChart112").getContext('2d');
+              var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                  labels: ["1 Cr","2 Cr","3 Cr","4 Cr","5 Cr","6 Cr","7 Cr","8 Cr","9 Cr","10 Cr"],
+                  datasets: [{
+                    label: '',
+                    backgroundColor: "#caf270",
+                    data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                  }, {
+                    label: '',
+                    backgroundColor: "#45c490",
+                    data: [10625000, 21250000, 31875000, 42500000, 53125000,63750000, 74375000, 85000000, 95625000,106250000],
+                  }, {
+                    label: '',
+                    backgroundColor: "#008d93",
+                    data: [20700000, 41400000, 62100000, 82800000, 103500000,124200000, 144900000, 165600000, 186300000,207000000],
+                  }],
+                },
+              options: {
+                  tooltips: {
+                    displayColors: true,
+                    callbacks:{
+                      mode: 'x',
+                    },
+                  },
+                  animations: {
+          tension: {
+            duration: 1000,
+            easing: 'linear',
+            from: 1,
+            to: 0,
+            loop: true
+          }
+        },
+                  scales: {
+                    xAxes: [{
+                      stacked: true,
+                      gridLines: {
+                        display: false,
+                      },
+                      ticks: {
+                       
+                       fontSize: 18,
+                     },
+                    }],
+                    yAxes: [{
+                      stacked: true,
+                      ticks: {
+                        beginAtZero: true,
+                        fontSize:18,
+                      },
+                      type: 'linear',
+                    }]
+                  },
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  legend: { position: 'none' },
+                }
+              });
+              </script>
+              <script type="text/javascript">
+                  function show(elementId) { 
+                   document.getElementById("id11").style.display="none";
+                   document.getElementById("id21").style.display="none";
+                   document.getElementById("id31").style.display="none";
+                   document.getElementById("id41").style.display="none";
+                   document.getElementById("id51").style.display="none";
+                   document.getElementById("id61").style.display="none";
+                   document.getElementById("id71").style.display="none";
+                   document.getElementById("id81").style.display="none";
+                   document.getElementById(elementId).style.display="block";
+                  }
+                  </script>
+                  <script>
+                    // Add active class to the current button (highlight it)
+                    var header = document.getElementById("myDIV33");
+                    var btns = header.getElementsByClassName("bt1");
+                    for (var i = 0; i < btns.length; i++) {
+                      btns[i].addEventListener("click", function() {
+                      var current = document.getElementsByClassName("active");
+                      current[0].className = current[0].className.replace(" active", "");
+                      this.className += " active";
+                      });
+                    }
+                    </script>
+          
+        </section>
           
           <section class="hero-offer-bg pt-5 mb-0 pb-0">
             <div class="bt-container pt-5 mt-5 mb-0 pb-0 text-center">
