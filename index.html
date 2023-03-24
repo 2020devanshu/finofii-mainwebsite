@@ -286,6 +286,63 @@ a.show.btn.btn-primary.bt1.active {
 section.hero.mt-0.py-5.mobileview {
     display: none;
 }
+h5.title {
+    text-align: center;
+    font-size: 50px;
+}
+p.description {
+    font-size: 19px;
+    padding: 15px 15px 15px 15px;
+}
+.submit-button-wrapper {
+    padding: 20px 0 0 0;
+}
+.submit-button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+input.send.button {
+    font-size: 27px;
+    background: #81c2ff;
+    border: 2px solid #81c2ff;
+    color: white;
+    border-radius: 8px;
+}
+.form-control {
+   
+    font-size: 20px !important;
+    border: 1px solid #b7acac !important;
+    border-radius: 5px !important;
+}
+.contact_form_st {
+    border: 1px solid grey;
+    padding: 20px 20px 20px 20px;
+    background: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 20px;
+    box-shadow: 1px 5px 10px 7px #b7acac;
+}
+button.send_button {
+    font-size: 26px;
+    background: #80c1ff;
+    color: white;
+    border: 2px solid #80c1ff;
+    border-radius: 10px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+::placeholder {
+    text-align: center;
+}
+.contact-form-wrapper.d-flex.justify-content-center {
+    padding: 30px 30px 30px 30px;
+}
 @media screen and (min-device-width: 250px) and (max-device-width: 768px) { 
   .a0,.a1,.a2,.a3,.a4,.a5,.a6,.a7 {
     width: 100%;
@@ -298,6 +355,10 @@ button.btn.btn-primary.bt1 {
 }
 button.btn.btn-primary.bt1 {
     font-size: 15px;
+}
+h5.title {
+    text-align: center;
+    font-size: 40px;
 }
 section.hero.mt-0.py-5.desktopview {
     display: none;
@@ -2590,7 +2651,7 @@ section.hero.mt-0.py-5.mobileview {
                   </div>
                   <div class="col-md-6 col-lg-6 col-xl-6 p-3 p-md-5 p-lg-5 p-xl-5 d-flex align-items-center">
                     <div class="w-100">
-                      <h1 class="fw-bold" style="font-size: 26px !important"> Contact Us </h1>
+                      <!-- <h1 class="fw-bold" style="font-size: 26px !important"> Contact Us </h1>
                       <p style="font-size: 16px"> Quality content generation, work with top <br /> talent, use content OS and more. </p>
                       <form method="post" name="formName" id="formName">
                         <input class="form-control mt-3 w-100" type="text" required id="name" name="name" placeholder="Name" style="font-size: 16px" />
@@ -2600,7 +2661,35 @@ section.hero.mt-0.py-5.mobileview {
                         <div class="text-center">
                           <button class="btn btn-primary mt-3 w-100" style="font-size: 16px" type="submit"> Submit </button>
                         </div>
-                      </form>
+                      </form> -->
+                      <div class="contact_form_st">
+                        <div class="contact-form-wrapper d-flex justify-content-center">
+                          <form method="post" name="formName" id="formName" class="contact-form">
+                            <h5 class="title">Contact us</h5>
+                            <p class="description">Quality content generation, work with top  talent, use content OS and more.
+                            </p>
+                            <div>
+                              <input type="text" class="form-control mb-3" id="name" name="name" placeholder="Name" required>
+                            </div>
+                            <div>
+                              <input type="text" class="form-control mb-3" id="company-name" name="company-name" placeholder="Company Name" required>
+                            </div>
+                            <div>
+                              <input type="email" class="form-control mb-3" id="email" name="email" placeholder="Email ID" required>
+                            </div>
+                            <div>
+                              <input type="number" class="form-control mb-3" id="phone" name="phone" placeholder="Mobile Number" required>
+                            </div>
+                            <!-- <div>
+                              <textarea id="message" class="form-control rounded border-white mb-3 form-text-area" rows="5" cols="30" placeholder="Message" required></textarea>
+                            </div> -->
+                            <div class="submit-button-wrapper">
+                              <button class="send_button"type="submit"> Submit </button>
+                              <!-- <input type="submit" class="sendbutton" value="Send"> -->
+                            </div>
+                          </form>
+                        </div>
+                      </div>
                       <script>
                         const scriptURL = "https://script.google.com/macros/s/AKfycbycXMbtRrs9c0dgxhuX-gS83qH3f7z_KclDfSD39Zqk4YIYl0M9CBIwbD7PedKuvAQ5/exec";
                         const form = document.forms["formName"];
