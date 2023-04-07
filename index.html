@@ -41,6 +41,10 @@
       .dnd_area-row-0-force-full-width-section>.row-fluid {
         max-width: none !important;
       }
+      p.fw-bold.py-3.text-light {
+    
+    text-align: center !important;
+}
 
       .dnd_area-row-1-background-color {
         background-color: rgba(179, 224, 229, 1) !important;
@@ -370,7 +374,7 @@
     
     display:none;
   }
-  .a0{
+  .a2{
    
     display:block;
   }
@@ -1061,9 +1065,9 @@
                 <button type="button" target="6" class="btn btn-primary show bt1" >180 Days</button>
                 <button type="button" target="7" class="btn btn-primary show bt1">270 Days</button>
                 <button type="button" target="8" class="btn btn-primary show bt1">365 Days</button> -->
-                <a  class="show btn btn-primary  bt1 active" target="1">7 Days</a>
+                <a  class="show btn btn-primary  bt1 " target="1">7 Days</a>
                 <a  class="show btn btn-primary  bt1" target="2">15 Days</a>
-                <a  class="show btn btn-primary  bt1" target="3">30 Days</a>
+                <a  class="show btn btn-primary  bt1 active" target="3">30 Days</a>
                 <a  class="show btn btn-primary  bt1" target="4">60 Days</a>
                 <a  class="show btn btn-primary  bt1" target="5">90 Days</a>
                 <a  class="show btn btn-primary  bt1" target="6">180 Days</a>
@@ -1071,7 +1075,7 @@
                 <a  class="show btn btn-primary  bt1" target="8">365 Days</a>
               </div>
              
-                <div class="w0"   id="div1">
+                <div class="w0" style="display:none;"  id="div1">
                   <h2 class="text_center">7 Days Data</h2>
                 <canvas class="barheight  mt-0 py-5" id="myChart4"></canvas>
                 
@@ -1118,7 +1122,7 @@
                 </div>
             
             
-                <div class="w0" style="display:none;" id="div3">
+                <div class="w0"  id="div3">
                   <h2 class="text_center">30 Days Data</h2>
                 <canvas class="barheight" id="myChart6"></canvas>
       
@@ -1251,6 +1255,8 @@
            
                 <script>
                     var ctx = document.getElementById("myChart4").getContext('2d');
+                     var datss = ["empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty","empty"];
+                    var abc = [10000, 10000, 10000, 10000, 10000,10000, 10000, 10000, 10000,10000];
                 var myChart = new Chart(ctx, {
                   type: 'bar',
                   data: {
@@ -1258,25 +1264,50 @@
                     datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
+                     
                       
-                      data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                      
+                      
+                      data: [1000, 1000, 1000, 1000, 1000,1000, 1000, 1000, 1000,1000],
                     },
+                    
+                    // {
+                    // label: '',
+                    //   backgroundColor: "#caf270",
+                      
+                    //   data: [-1, -1, -1, -1, -1,-1, -1, -1,-1,-1],
+                    // },
                     {
                       label: '',
                       backgroundColor: "#008d93",
-                      data: [10000000-10000000, 20000000-20000000, 30000000-30000000, 40000000-40000000, 50000000-50000000,60000000-60000000, 70000000-70000000, 80000000-80000000, 90000000-90000000,100000000-100000000],
+                      data: [1000, 1000, 1000, 1000, 1000,1000, 1000, 1000, 1000,1000],
+                      // data: [10000000-10000000, 20000000-20000000, 30000000-30000000, 40000000-40000000, 50000000-50000000,60000000-60000000, 70000000-70000000, 80000000-80000000, 90000000-90000000,100000000-100000000],
                     }, {
                       label: '',
                       backgroundColor: "#45c490",
                       data: [10012945-10000000, 20025890-20000000, 30038835-30000000, 40051780-40000000, 50064726-50000000,60077671-60000000, 70090616-70000000, 80103561-80000000, 90116506-90000000,100129452-100000000],
                     }, ],
                   },
+                  
                 options: {
+                  
                     tooltips: {
-                      fontSize:20,
+                      filter: function (tooltipItem, data) {
+               
+                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                if (value <= 1001) {
+                  value == 0;
+                    return false ;
+                } else {
+                    return true;
+                }
+            },
+                      bodyFontSize:30,
+                      // fontSize:20,
+                      // enabled: false ,  
                       displayColors: true,
                       callbacks:{
-                        mode: 'x',
+                        mode: 'y',
                       },
                     },
                     animations: {
@@ -1312,8 +1343,16 @@
                         ticks: {
                           beginAtZero: true,
                           fontSize: 18,
+                          // min: 1000,
                           callback: function(value, index, ticks) {
-                        return  value/1000 + 'K' ;
+                            if(value >  0){
+                              return  value/1000 + 'K' ;
+
+                            }
+                            else{
+                              return  value/1000 ;
+                            }
+                        
                     }
                           
                         },
@@ -1337,7 +1376,7 @@
                     datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                      data: [3000, 3000, 3000, 3000, 3000,3000, 3000, 3000, 3000,3000],
                     }, 
                     {
                       label: '',
@@ -1350,7 +1389,19 @@
                     }, ],
                   },
                 options: {
-                    tooltips: {
+                   
+                  tooltips: {
+                      filter: function (tooltipItem, data) {
+               
+                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                if (value <= 3001) {
+                  
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+                       bodyFontSize:30,
                       displayColors: true,
                       callbacks:{
                         mode: 'x',
@@ -1383,9 +1434,16 @@
                         stacked: false,
                         ticks: {
                           beginAtZero: true,
+                          // min: 1000,
                           fontSize:18,
                           callback: function(value, index, ticks) {
-                        return  value/1000 + 'K' ;
+                            if(value >  0){
+                              return  value/1000 + 'K' ;
+
+                            }
+                            else{
+                              return  value/1000 ;
+                            }
                     }
                           
                         },
@@ -1407,7 +1465,7 @@
                     datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                      data: [7000, 7000, 7000, 7000, 7000,7000, 7000, 7000, 7000,7000],
                     }, 
                     {
                       label: '',
@@ -1420,7 +1478,19 @@
                     }, ],
                   },
                 options: {
-                    tooltips: {
+                  
+                  tooltips: {
+                      filter: function (tooltipItem, data) {
+               
+                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                if (value <= 7001) {
+                  
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+                      bodyFontSize:30,
                       displayColors: true,
                       callbacks:{
                         mode: 'x',
@@ -1450,9 +1520,16 @@
                         stacked: false,
                         ticks: {
                           beginAtZero: true,
+                          // min: 1000,
                           fontSize:18,
                           callback: function(value, index, ticks) {
-                        return  value/1000 + 'k' ;
+                            if(value >  0){
+                              return  value/1000 + 'K' ;
+
+                            }
+                            else{
+                              return  value/1000 ;
+                            }
                     }
                         },
                         type: 'linear',
@@ -1473,7 +1550,7 @@
                     datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                      data: [14000, 14000, 14000, 14000, 14000,14000, 14000, 14000, 14000,14000],
                     },
                     {
                       label: '',
@@ -1487,7 +1564,19 @@
                     },],
                   },
                 options: {
-                    tooltips: {
+                   
+                  tooltips: {
+                      filter: function (tooltipItem, data) {
+               
+                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                if (value <= 14001) {
+                  
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+                      bodyFontSize:30,
                       displayColors: true,
                       callbacks:{
                         mode: 'x',
@@ -1517,9 +1606,16 @@
                         stacked: false,
                         ticks: {
                           beginAtZero: true,
+                          // min: 1000,
                           fontSize:18,
                           callback: function(value, index, ticks) {
-                        return  value/1000 + 'k' ;
+                            if(value >  0){
+                              return  value/1000 + 'K' ;
+
+                            }
+                            else{
+                              return  value/1000 ;
+                            }
                     }
                         },
                         type: 'linear',
@@ -1540,7 +1636,7 @@
                     datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                      data: [17000, 17000, 17000, 17000, 17000,17000, 17000, 17000, 17000,17000],
                     }, 
                     {
                       label: '',
@@ -1553,7 +1649,19 @@
                     },],
                   },
                 options: {
-                    tooltips: {
+                   
+                  tooltips: {
+                      filter: function (tooltipItem, data) {
+               
+                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                if (value <= 17001) {
+                  
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+                      bodyFontSize:30,
                       displayColors: true,
                       callbacks:{
                         mode: 'x',
@@ -1583,9 +1691,16 @@
                         stacked: false,
                         ticks: {
                           beginAtZero: true,
+                          // min: 1000,
                           fontSize:18,
                           callback: function(value, index, ticks) {
-                        return  value/1000 + 'k' ;
+                            if(value >  0){
+                              return  value/1000 + 'K' ;
+
+                            }
+                            else{
+                              return  value/1000 ;
+                            }
                     }
                         },
                         type: 'linear',
@@ -1606,7 +1721,7 @@
                     datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                      data: [30000, 30000, 30000, 30000, 30000,30000, 30000, 30000, 30000,30000],
                     },
                     {
                       label: '',
@@ -1619,7 +1734,19 @@
                     }, ],
                   },
                 options: {
-                    tooltips: {
+                   
+                  tooltips: {
+                      filter: function (tooltipItem, data) {
+               
+                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                if (value <= 30001) {
+                  
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+                      bodyFontSize:30,
                       displayColors: true,
                       callbacks:{
                         mode: 'x',
@@ -1649,9 +1776,16 @@
                         stacked: false,
                         ticks: {
                           beginAtZero: true,
+                          // min: 1000,
                           fontSize:18,
                           callback: function(value, index, ticks) {
-                        return  value/1000 + 'k' ;
+                            if(value >  0){
+                              return  value/1000 + 'K' ;
+
+                            }
+                            else{
+                              return  value/1000 ;
+                            }
                     }
                         },
                         type: 'linear',
@@ -1672,7 +1806,7 @@
                     datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                      data: [40000, 40000, 40000, 40000, 40000,40000, 40000, 40000, 40000,40000],
                     }, 
                     {
                       label: '',
@@ -1685,7 +1819,19 @@
                     }, ],
                   },
                 options: {
-                    tooltips: {
+                   
+                  tooltips: {
+                      filter: function (tooltipItem, data) {
+               
+                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                if (value <= 40001) {
+                  
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+                      bodyFontSize:30,
                       displayColors: true,
                       callbacks:{
                         mode: 'x',
@@ -1715,9 +1861,16 @@
                         stacked: false,
                         ticks: {
                           beginAtZero: true,
+                          // min: 1000,
                           fontSize:18,
                           callback: function(value, index, ticks) {
-                        return  value/1000 + 'k' ;
+                            if(value >  0){
+                              return  value/1000 + 'K' ;
+
+                            }
+                            else{
+                              return  value/1000 ;
+                            }
                     }
                         },
                         type: 'linear',
@@ -1738,7 +1891,7 @@
                     datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                      data: [60000, 60000, 60000, 60000, 60000,60000, 60000, 60000, 60000,60000],
                     },
                     {
                       label: '',
@@ -1751,7 +1904,19 @@
                     }, ],
                   },
                 options: {
-                    tooltips: {
+                   
+                  tooltips: {
+                      filter: function (tooltipItem, data) {
+               
+                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                if (value <= 60001) {
+                  
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+                       bodyFontSize:30,
                       displayColors: true,
                       callbacks:{
                         mode: 'x',
@@ -1782,8 +1947,15 @@
                         ticks: {
                           beginAtZero: true,
                           fontSize:18,
+                          // min: 1000,
                           callback: function(value, index, ticks) {
-                        return  value/1000 + 'k' ;
+                            if(value >  0){
+                              return  value/1000 + 'K' ;
+
+                            }
+                            else{
+                              return  value/1000 ;
+                            }
                     }
                         },
                         type: 'linear',
@@ -1834,9 +2006,9 @@
           <section class="hero mt-0 py-5 mobileview" >
           
             <div class="buttonss" id="myDIV33">
-              <button type="button" class="btn btn-primary bt1 active" onclick="show('id11');">7 Days</button>
+              <button type="button" class="btn btn-primary bt1 " onclick="show('id11');">7 Days</button>
               <button type="button" class="btn btn-primary bt1" onclick="show('id21');">15 Days</button>
-              <button type="button" class="btn btn-primary bt1" onclick="show('id31');">30 Days</button>
+              <button type="button" class="btn btn-primary bt1 active" onclick="show('id31');">30 Days</button>
               <button type="button" class="btn btn-primary bt1" onclick="show('id41');">60 Days</button>
               <button type="button" class="btn btn-primary bt1" onclick="show('id51');">90 Days</button>
               <button type="button" class="btn btn-primary bt1" onclick="show('id61');">180 Days</button>
@@ -1844,7 +2016,7 @@
               <button type="button" class="btn btn-primary bt1" onclick="show('id81');">365 Days</button>
             </div>
             <div class="hero">
-              <div class=" col-lg-12 a0" id="id11">
+              <div class=" col-lg-12 a0"  id="id11">
                 <h2 class="text_center">7 Days Data</h2>
               <canvas class="barheight  mt-0 py-5" id="myChart42"></canvas>
               
@@ -2033,12 +2205,13 @@
                       label: '',
                       backgroundColor: "#caf270",
                       
-                      data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                      data: [1000, 1000, 1000, 1000, 1000,1000, 1000, 1000, 1000,1000],
                     },
                     {
                       label: '',
                       backgroundColor: "#008d93",
-                      data: [10000000-10000000, 20000000-20000000, 30000000-30000000, 40000000-40000000, 50000000-50000000,60000000-60000000, 70000000-70000000, 80000000-80000000, 90000000-90000000,100000000-100000000],
+                      data: [1000, 1000, 1000, 1000, 1000,1000, 1000, 1000, 1000,1000],
+                      // data: [10000000-10000000, 20000000-20000000, 30000000-30000000, 40000000-40000000, 50000000-50000000,60000000-60000000, 70000000-70000000, 80000000-80000000, 90000000-90000000,100000000-100000000],
                     }, {
                       label: '',
                       backgroundColor: "#45c490",
@@ -2046,8 +2219,20 @@
                     }, ],
                 },
               options: {
-                  tooltips: {
-                    fontSize:20,
+                 
+                tooltips: {
+                      filter: function (tooltipItem, data) {
+               
+                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                if (value <= 1001) {
+                  
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+                      
+                    bodyFontSize:30,
                     displayColors: true,
                     callbacks:{
                       mode: 'x',
@@ -2087,7 +2272,13 @@
                         beginAtZero: true,
                         fontSize: 18,
                         callback: function(value, index, ticks) {
-                        return  value/1000 + 'k' ;
+                          if(value >  0){
+                              return  value/1000 + 'K' ;
+
+                            }
+                            else{
+                              return  value/1000 ;
+                            }
                     }
                       },
                       type: 'linear',
@@ -2108,7 +2299,7 @@
                   datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                      data: [3000, 3000, 3000, 3000, 3000,3000, 3000, 3000, 3000,3000],
                     }, 
                     {
                       label: '',
@@ -2121,7 +2312,19 @@
                     }, ],
                 },
               options: {
-                  tooltips: {
+                  
+                tooltips: {
+                      filter: function (tooltipItem, data) {
+               
+                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                if (value <= 3001) {
+                  
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+                    bodyFontSize:30,
                     displayColors: true,
                     callbacks:{
                       mode: 'x',
@@ -2156,7 +2359,13 @@
                         beginAtZero: true,
                         fontSize:18,
                         callback: function(value, index, ticks) {
-                        return  value/1000 + 'k' ;
+                          if(value >  0){
+                              return  value/1000 + 'K' ;
+
+                            }
+                            else{
+                              return  value/1000 ;
+                            }
                     }
                       },
                       type: 'linear',
@@ -2177,7 +2386,7 @@
                   datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                      data: [7000, 7000, 7000, 7000, 7000,7000, 7000, 7000, 7000,7000],
                     }, 
                     {
                       label: '',
@@ -2190,7 +2399,19 @@
                     }, ],
                 },
               options: {
-                  tooltips: {
+                 
+                tooltips: {
+                      filter: function (tooltipItem, data) {
+               
+                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                if (value <= 7001) {
+                  
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+                    bodyFontSize:30,
                     displayColors: true,
                     callbacks:{
                       mode: 'x',
@@ -2222,7 +2443,13 @@
                         beginAtZero: true,
                         fontSize:18,
                         callback: function(value, index, ticks) {
-                        return  value/1000 + 'K' ;
+                          if(value >  0){
+                              return  value/1000 + 'K' ;
+
+                            }
+                            else{
+                              return  value/1000 ;
+                            }
                     }
                       },
                       type: 'linear',
@@ -2243,7 +2470,7 @@
                   datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                      data: [14000, 14000, 14000, 14000, 14000,14000, 14000, 14000, 14000,14000],
                     },
                     {
                       label: '',
@@ -2257,7 +2484,19 @@
                     },],
                 },
               options: {
-                  tooltips: {
+                  
+                tooltips: {
+                      filter: function (tooltipItem, data) {
+               
+                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                if (value <= 14001) {
+                  
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+                    bodyFontSize:30,
                     displayColors: true,
                     callbacks:{
                       mode: 'x',
@@ -2289,7 +2528,13 @@
                         beginAtZero: true,
                         fontSize:18,
                         callback: function(value, index, ticks) {
-                        return  value/1000 + 'K' ;
+                          if(value >  0){
+                              return  value/1000 + 'K' ;
+
+                            }
+                            else{
+                              return  value/1000 ;
+                            }
                     }
                       },
                       type: 'linear',
@@ -2310,7 +2555,7 @@
                   datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                      data: [17000, 17000, 17000, 17000, 17000,17000, 17000, 17000, 17000,17000],
                     }, 
                     {
                       label: '',
@@ -2323,7 +2568,19 @@
                     },],
                 },
               options: {
-                  tooltips: {
+                 
+                tooltips: {
+                      filter: function (tooltipItem, data) {
+               
+                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                if (value <= 17001) {
+                  
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+                    bodyFontSize:30,
                     displayColors: true,
                     callbacks:{
                       mode: 'x',
@@ -2355,7 +2612,13 @@
                         beginAtZero: true,
                         fontSize:18,
                         callback: function(value, index, ticks) {
-                        return  value/1000 + 'K' ;
+                          if(value >  0){
+                              return  value/1000 + 'K' ;
+
+                            }
+                            else{
+                              return  value/1000 ;
+                            }
                     }
                       },
                       type: 'linear',
@@ -2376,7 +2639,7 @@
                   datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                      data: [30000, 30000, 30000, 30000, 30000,30000, 30000, 30000, 30000,30000],
                     },
                     {
                       label: '',
@@ -2389,7 +2652,19 @@
                     }, ],
                 },
               options: {
-                  tooltips: {
+                 
+                tooltips: {
+                      filter: function (tooltipItem, data) {
+               
+                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                if (value <= 30001) {
+                  
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+                    bodyFontSize:30,
                     displayColors: true,
                     callbacks:{
                       mode: 'x',
@@ -2421,7 +2696,13 @@
                         beginAtZero: true,
                         fontSize:18,
                         callback: function(value, index, ticks) {
-                        return  value/1000 + 'K' ;
+                          if(value >  0){
+                              return  value/1000 + 'K' ;
+
+                            }
+                            else{
+                              return  value/1000 ;
+                            }
                     }
                       },
                       type: 'linear',
@@ -2442,7 +2723,7 @@
                   datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                      data: [40000, 40000, 40000, 40000, 40000,40000, 40000, 40000, 40000,40000],
                     }, 
                     {
                       label: '',
@@ -2455,7 +2736,19 @@
                     }, ],
                 },
               options: {
-                  tooltips: {
+                
+                tooltips: {
+                      filter: function (tooltipItem, data) {
+               
+                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                if (value <= 40001) {
+                  
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+                    bodyFontSize:30,
                     displayColors: true,
                     callbacks:{
                       mode: 'x',
@@ -2487,7 +2780,13 @@
                         beginAtZero: true,
                         fontSize:18,
                         callback: function(value, index, ticks) {
-                        return  value/1000 + 'K' ;
+                          if(value >  0){
+                              return  value/1000 + 'K' ;
+
+                            }
+                            else{
+                              return  value/1000 ;
+                            }
                     }
                       },
                       type: 'linear',
@@ -2508,7 +2807,7 @@
                   datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [1.5, 1.5, 1.5, 1.5, 1.5,1.5, 1.5, 1.5, 1.5,1.5],
+                      data: [60000, 60000, 60000, 60000, 60000,60000, 60000, 60000, 60000,60000],
                     },
                     {
                       label: '',
@@ -2521,7 +2820,19 @@
                     }, ],
                 },
               options: {
-                  tooltips: {
+                 
+                tooltips: {
+                      filter: function (tooltipItem, data) {
+               
+                var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                if (value <= 60001) {
+                  
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+                    bodyFontSize:30,
                     displayColors: true,
                     callbacks:{
                       mode: 'x',
@@ -2553,7 +2864,13 @@
                         beginAtZero: true,
                         fontSize:18,
                         callback: function(value, index, ticks) {
-                        return  value/1000 + 'K' ;
+                          if(value >  0){
+                              return  value/1000 + 'K' ;
+
+                            }
+                            else{
+                              return  value/1000 ;
+                            }
                     }
                       },
                       type: 'linear',
