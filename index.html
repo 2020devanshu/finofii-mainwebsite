@@ -1268,7 +1268,7 @@
                       
                       
                       
-                      data: [1000, 1000, 1000, 1000, 1000,1000, 1000, 1000, 1000,1000],
+                      data: [0, 0, 0, 0, 0,0, 0, 0, 0,0],
                     },
                     
                     // {
@@ -1280,7 +1280,7 @@
                     {
                       label: '',
                       backgroundColor: "#008d93",
-                      data: [1000, 1000, 1000, 1000, 1000,1000, 1000, 1000, 1000,1000],
+                      data: [0, 0, 0, 0, 0,0, 0, 0, 0,0],
                       // data: [10000000-10000000, 20000000-20000000, 30000000-30000000, 40000000-40000000, 50000000-50000000,60000000-60000000, 70000000-70000000, 80000000-80000000, 90000000-90000000,100000000-100000000],
                     }, {
                       label: '',
@@ -1297,7 +1297,7 @@
                 var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                 if (value <= 1001) {
                   value == 0;
-                    return yes ;
+                    return true ;
                 } else {
                     return true;
                 }
@@ -1309,7 +1309,13 @@
                       callbacks:{
                         mode: 'y',
                       },
+                      mode: 'index',
+         intersect: false
                     },
+                    hover: {
+         mode: 'index',
+         intersect: false
+      },
                     animations: {
             tension: {
               duration: 1000,
@@ -1376,7 +1382,7 @@
                     datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [3000, 3000, 3000, 3000, 3000,3000, 3000, 3000, 3000,3000],
+                      data: [0, 0, 0, 0, 0,0, 0, 0, 0,0],
                     }, 
                     {
                       label: '',
@@ -1396,7 +1402,7 @@
                 var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                 if (value <= 3001) {
                   
-                    return yes;
+                    return true;
                 } else {
                     return true;
                 }
@@ -1406,7 +1412,13 @@
                       callbacks:{
                         mode: 'x',
                       },
+                      mode: 'index',
+         intersect: false
                     },
+                    hover: {
+         mode: 'index',
+         intersect: false
+      },
                     legend: {
           display: false
         },
@@ -1465,7 +1477,7 @@
                     datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [7000, 7000, 7000, 7000, 7000,7000, 7000, 7000, 7000,7000],
+                      data: [0, 0, 0, 0, 0,0, 0, 0, 0,0],
                     }, 
                     {
                       label: '',
@@ -1485,7 +1497,7 @@
                 var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                 if (value <= 7001) {
                   
-                    return yes;
+                    return true;
                 } else {
                     return true;
                 }
@@ -1495,7 +1507,13 @@
                       callbacks:{
                         mode: 'x',
                       },
+                      mode: 'index',
+         intersect: false
                     },
+                    hover: {
+         mode: 'index',
+         intersect: false
+      },
                     animations: {
             tension: {
               duration: 1000,
@@ -1550,7 +1568,7 @@
                     datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [14000, 14000, 14000, 14000, 14000,14000, 14000, 14000, 14000,14000],
+                      data: [0, 0, 0, 0, 0,0, 0, 0, 0,0],
                     },
                     {
                       label: '',
@@ -1571,7 +1589,7 @@
                 var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                 if (value <= 14001) {
                   
-                    return yes;
+                    return true;
                 } else {
                     return true;
                 }
@@ -1581,7 +1599,13 @@
                       callbacks:{
                         mode: 'x',
                       },
+                      mode: 'index',
+         intersect: false
                     },
+                    hover: {
+         mode: 'index',
+         intersect: false
+      },
                     animations: {
             tension: {
               duration: 1000,
@@ -1636,7 +1660,7 @@
                     datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [17000, 17000, 17000, 17000, 17000,17000, 17000, 17000, 17000,17000],
+                      data: [0, 0, 0, 0, 0,0, 0, 0, 0,0],
                     }, 
                     {
                       label: '',
@@ -1656,7 +1680,7 @@
                 var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                 if (value <= 17001) {
                   
-                    return yes;
+                    return true;
                 } else {
                     return true;
                 }
@@ -1666,7 +1690,13 @@
                       callbacks:{
                         mode: 'x',
                       },
+                      mode: 'index',
+         intersect: false
                     },
+                    hover: {
+         mode: 'index',
+         intersect: false
+      },
                     animations: {
             tension: {
               duration: 1000,
@@ -1721,7 +1751,7 @@
                     datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [30000, 30000, 30000, 30000, 30000,30000, 30000, 30000, 30000,30000],
+                      data: [0, 0, 0, 0, 0,0, 0, 0, 0,0],
                     },
                     {
                       label: '',
@@ -1741,7 +1771,7 @@
                 var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                 if (value <= 30001) {
                   
-                    return yes;
+                    return true;
                 } else {
                     return true;
                 }
@@ -1751,7 +1781,13 @@
                       callbacks:{
                         mode: 'x',
                       },
+                      mode: 'index',
+         intersect: false
                     },
+                    hover: {
+         mode: 'index',
+         intersect: false
+      },
                     animations: {
             tension: {
               duration: 1000,
@@ -1806,7 +1842,7 @@
                     datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [40000, 40000, 40000, 40000, 40000,40000, 40000, 40000, 40000,40000],
+                      data: [0, 0, 0, 0, 0,0, 0, 0, 0,0],
                     }, 
                     {
                       label: '',
@@ -1826,7 +1862,7 @@
                 var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                 if (value <= 40001) {
                   
-                    return yes;
+                    return true;
                 } else {
                     return true;
                 }
@@ -1836,7 +1872,13 @@
                       callbacks:{
                         mode: 'x',
                       },
+                      mode: 'index',
+         intersect: false
                     },
+                    hover: {
+         mode: 'index',
+         intersect: false
+      },
                     animations: {
             tension: {
               duration: 1000,
@@ -1891,7 +1933,7 @@
                     datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [60000, 60000, 60000, 60000, 60000,60000, 60000, 60000, 60000,60000],
+                      data: [0, 0, 0, 0, 0,0, 0, 0, 0,0],
                     },
                     {
                       label: '',
@@ -1911,7 +1953,7 @@
                 var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                 if (value <= 60001) {
                   
-                    return yes;
+                    return true;
                 } else {
                     return true;
                 }
@@ -1921,7 +1963,13 @@
                       callbacks:{
                         mode: 'x',
                       },
+                      mode: 'index',
+         intersect: false
                     },
+                    hover: {
+         mode: 'index',
+         intersect: false
+      },
                     animations: {
             tension: {
               duration: 1000,
@@ -2205,12 +2253,12 @@
                       label: '',
                       backgroundColor: "#caf270",
                       
-                      data: [1000, 1000, 1000, 1000, 1000,1000, 1000, 1000, 1000,1000],
+                      data: [0, 0, 0, 0, 0,0, 0, 0, 0,0],
                     },
                     {
                       label: '',
                       backgroundColor: "#008d93",
-                      data: [1000, 1000, 1000, 1000, 1000,1000, 1000, 1000, 1000,1000],
+                      data: [0, 0, 0, 0, 0,0, 0, 0, 0,0],
                       // data: [10000000-10000000, 20000000-20000000, 30000000-30000000, 40000000-40000000, 50000000-50000000,60000000-60000000, 70000000-70000000, 80000000-80000000, 90000000-90000000,100000000-100000000],
                     }, {
                       label: '',
@@ -2226,7 +2274,7 @@
                 var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                 if (value <= 1001) {
                   
-                    return yes;
+                    return true;
                 } else {
                     return true;
                 }
@@ -2237,7 +2285,13 @@
                     callbacks:{
                       mode: 'x',
                     },
-                  },
+                    mode: 'index',
+         intersect: false
+                    },
+                    hover: {
+         mode: 'index',
+         intersect: false
+      },
                   animations: {
           tension: {
             duration: 1000,
@@ -2299,7 +2353,7 @@
                   datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [3000, 3000, 3000, 3000, 3000,3000, 3000, 3000, 3000,3000],
+                      data: [0, 0, 0, 0, 0,0, 0, 0, 0,0],
                     }, 
                     {
                       label: '',
@@ -2319,7 +2373,7 @@
                 var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                 if (value <= 3001) {
                   
-                    return yes;
+                    return true;
                 } else {
                     return true;
                 }
@@ -2329,7 +2383,13 @@
                     callbacks:{
                       mode: 'x',
                     },
-                  },
+                    mode: 'index',
+         intersect: false
+                    },
+                    hover: {
+         mode: 'index',
+         intersect: false
+      },
                   legend: {
         display: false
       },
@@ -2386,7 +2446,7 @@
                   datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [7000, 7000, 7000, 7000, 7000,7000, 7000, 7000, 7000,7000],
+                      data: [0, 0, 0, 0, 0,0, 0, 0, 0,0],
                     }, 
                     {
                       label: '',
@@ -2406,7 +2466,7 @@
                 var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                 if (value <= 7001) {
                   
-                    return yes;
+                    return true;
                 } else {
                     return true;
                 }
@@ -2416,7 +2476,13 @@
                     callbacks:{
                       mode: 'x',
                     },
-                  },
+                    mode: 'index',
+         intersect: false
+                    },
+                    hover: {
+         mode: 'index',
+         intersect: false
+      },
                   animations: {
           tension: {
             duration: 1000,
@@ -2470,7 +2536,7 @@
                   datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [14000, 14000, 14000, 14000, 14000,14000, 14000, 14000, 14000,14000],
+                      data: [0, 0, 0, 0, 0,0, 0, 0, 0,0],
                     },
                     {
                       label: '',
@@ -2491,7 +2557,7 @@
                 var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                 if (value <= 14001) {
                   
-                    return yes;
+                    return true;
                 } else {
                     return true;
                 }
@@ -2501,7 +2567,13 @@
                     callbacks:{
                       mode: 'x',
                     },
-                  },
+                    mode: 'index',
+         intersect: false
+                    },
+                    hover: {
+         mode: 'index',
+         intersect: false
+      },
                   animations: {
           tension: {
             duration: 1000,
@@ -2555,7 +2627,7 @@
                   datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [17000, 17000, 17000, 17000, 17000,17000, 17000, 17000, 17000,17000],
+                      data: [0, 0, 0, 0, 0,0, 0, 0, 0,0],
                     }, 
                     {
                       label: '',
@@ -2575,7 +2647,7 @@
                 var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                 if (value <= 17001) {
                   
-                    return yes;
+                    return true;
                 } else {
                     return true;
                 }
@@ -2585,7 +2657,13 @@
                     callbacks:{
                       mode: 'x',
                     },
-                  },
+                    mode: 'index',
+         intersect: false
+                    },
+                    hover: {
+         mode: 'index',
+         intersect: false
+      },
                   animations: {
           tension: {
             duration: 1000,
@@ -2639,7 +2717,7 @@
                   datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [30000, 30000, 30000, 30000, 30000,30000, 30000, 30000, 30000,30000],
+                      data: [0, 0, 0, 0, 0,0, 0, 0, 0,0],
                     },
                     {
                       label: '',
@@ -2659,7 +2737,7 @@
                 var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                 if (value <= 30001) {
                   
-                    return yes;
+                    return true;
                 } else {
                     return true;
                 }
@@ -2669,7 +2747,13 @@
                     callbacks:{
                       mode: 'x',
                     },
-                  },
+                    mode: 'index',
+         intersect: false
+                    },
+                    hover: {
+         mode: 'index',
+         intersect: false
+      },
                   animations: {
           tension: {
             duration: 1000,
@@ -2723,7 +2807,7 @@
                   datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [40000, 40000, 40000, 40000, 40000,40000, 40000, 40000, 40000,40000],
+                      data: [0, 0, 0, 0, 0,0, 0, 0, 0,0],
                     }, 
                     {
                       label: '',
@@ -2743,7 +2827,7 @@
                 var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                 if (value <= 40001) {
                   
-                    return yes;
+                    return true;
                 } else {
                     return true;
                 }
@@ -2753,7 +2837,13 @@
                     callbacks:{
                       mode: 'x',
                     },
-                  },
+                    mode: 'index',
+         intersect: false
+                    },
+                    hover: {
+         mode: 'index',
+         intersect: false
+      },
                   animations: {
           tension: {
             duration: 1000,
@@ -2807,7 +2897,7 @@
                   datasets: [{
                       label: '',
                       backgroundColor: "#caf270",
-                      data: [60000, 60000, 60000, 60000, 60000,60000, 60000, 60000, 60000,60000],
+                      data: [0, 0, 0, 0, 0,0, 0, 0, 0,0],
                     },
                     {
                       label: '',
@@ -2827,7 +2917,7 @@
                 var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                 if (value <= 60001) {
                   
-                    return yes;
+                    return true;
                 } else {
                     return true;
                 }
@@ -2837,7 +2927,13 @@
                     callbacks:{
                       mode: 'x',
                     },
-                  },
+                    mode: 'index',
+         intersect: false
+                    },
+                    hover: {
+         mode: 'index',
+         intersect: false
+      },
                   animations: {
           tension: {
             duration: 1000,
