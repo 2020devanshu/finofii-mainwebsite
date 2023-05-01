@@ -6,7 +6,53 @@ p {
   background-color: #ffffff;
   padding: 50px;
 }
-
+.col-lg-6.demofinny {
+  border: 1px solid white;
+  padding: 20px 20px 20px 20px;
+  background: white;
+}
+.trustpart {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.col-lg-6.textpartner {
+  text-align: center !important;
+}
+h5.secpart {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 0 0 20px 0;
+}
+h2.txtcenteralgin {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+}
+h3.cococo {
+  text-align: center;
+  font-size: 21px;
+  font-weight: 700;
+}
+p.cocompany {
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center !important;
+}
+.row.my-5.morefino {
+  text-align: center;
+}
+.row.jupidata {
+  border: 2px solid #7bb5ff;
+  padding: 20px 20px 20px 20px;
+  background: #7bb5ff;
+  border-radius: 10px;
+}
+p.finojupi {
+  text-align: center !important;
+  font-size: 20px;
+  font-weight: 500;
+}
 .bottom-image {
   width: 100%;
   max-width: 300px;
