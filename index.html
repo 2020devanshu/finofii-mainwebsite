@@ -9,6 +9,7 @@
           Helvetica, Arial, sans-serif !important;
       }
     </style>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
@@ -3216,121 +3217,90 @@
               </div>
             </div>
           </section>
-          <section class="hero-offer-bg pt-5 mb-0 pb-0">
-            <div class="bt-container pt-5 mt-5 mb-0 pb-0">
-              <div class="m-5">
-                <div class="row">
-                  <div class="col-md-6 col-lg-6 col-xl-6 d-flex align-items-center">
-                    <img style="max-width: 320px" class="img-fluid mx-auto mb-4" src="assets/images/image-asset.gif" />
-                  </div>
-                  <div class="col-md-6 col-lg-6 col-xl-6 p-3 p-md-5 p-lg-5 p-xl-5 d-flex align-items-center">
-                    <div class="w-100">
-                      <!-- <h1 class="fw-bold" style="font-size: 26px !important"> Contact Us </h1>
-                      <p style="font-size: 16px"> Quality content generation, work with top <br /> talent, use content OS and more. </p>
-                      <form method="post" name="formName" id="formName">
-                        <input class="form-control mt-3 w-100" type="text" required id="name" name="name" placeholder="Name" style="font-size: 16px" />
-                        <input class="form-control mt-3" type="text" required id="company-name" name="company-name" placeholder="Company Name" style="font-size: 16px" />
-                        <input class="form-control mt-3" type="email" required id="email" name="email" placeholder="Email ID" style="font-size: 16px" />
-                        <input type="number" class="form-control mt-3" required id="phone" name="phone" placeholder="Mobile Number" style="font-size: 16px" />
-                        <div class="text-center">
-                          <button class="btn btn-primary mt-3 w-100" style="font-size: 16px" type="submit"> Submit </button>
-                        </div>
-                      </form> -->
-                      <div class="contact_form_st">
-                        <div class="contact-form-wrapper d-flex justify-content-center">
-                          <form method="post" name="formName" id="formName" class="contact-form">
-                            <h5 class="title">Contact us</h5>
-                            <p class="description">Quality content generation, work with top  talent, use content OS and more.
-                            </p>
-                            <div>
-                              <input type="text" class="form-control mb-3" id="name" name="name" placeholder="Name" required>
-                            </div>
-                            <div>
-                              <input type="text" class="form-control mb-3" id="company-name" name="company-name" placeholder="Company Name" required>
-                            </div>
-                            <div>
-                              <input type="email" class="form-control mb-3" id="email" name="email" placeholder="Email ID" required>
-                            </div>
-                            <div>
-                              <input type="number" class="form-control mb-3" id="phone" name="phone" placeholder="Mobile Number" required>
-                            </div>
-                            <!-- <div>
-                              <textarea id="message" class="form-control rounded border-white mb-3 form-text-area" rows="5" cols="30" placeholder="Message" required></textarea>
-                            </div> -->
-                            <div class="submit-button-wrapper">
-                              <button class="send_button"type="submit"> Submit </button>
-                              <!-- <input type="submit" class="sendbutton" value="Send"> -->
-                            </div>
-                          </form>
+          <section class="hero-offer-bg pt-5 mb-0 pb-0 extraa">
+            <div class="bt-container pt-5 mt-5 mb-0 pb-0 estra">
+              <div class="contacnt">
+                <!-- START CONTACT SECTION -->
+                <div class="container">
+                  <div class="section-contact">
+                    <div class="row justify-content-center">
+                      <div class="col-12 col-lg-10 col-xl-8">
+                        <div class="header-section text-center">
+                          <h2 class="title">Get In Touch
+                            <span class="dot"></span>
+                            <span class="big-title">CONTACT</span>
+                          </h2>
+                          <!-- <p class="description">Quality content generation, work with top  talent, use content OS and more.</p> -->
+                          
                         </div>
                       </div>
-                      <script>
-                        const scriptURL = "https://script.google.com/macros/s/AKfycbycXMbtRrs9c0dgxhuX-gS83qH3f7z_KclDfSD39Zqk4YIYl0M9CBIwbD7PedKuvAQ5/exec";
-                        const form = document.forms["formName"];
-                        form.addEventListener("submit", (e) => {
-                          if (document.getElementById("name").value === null || document.getElementById("name").value === "" || document.getElementById("name").value === undefined || document.getElementById("company-name").value === null || document.getElementById("company-name").value === "" || document.getElementById("company-name").value === undefined || document.getElementById("email").value === null || document.getElementById("email").value === "" || document.getElementById("email").value === undefined || document.getElementById("phone").value === null || document.getElementById("phone").value === "" || document.getElementById("phone").value === undefined || document.getElementById("phone").value.length < 10) {
-                            console.log(username);
-                            console.log(companyName);
-                            console.log(email);
-                            console.log(phone);
-                            alert("Empty Values");
-                          } else {
-                            e.preventDefault();
-                            fetch(scriptURL, {
-                              method: "POST",
-                              body: new FormData(form),
-                            }).then((response) => alert("Thank you! your form is submitted successfully.")).then(() => {
-                              window.location.reload();
-                            }).catch((error) => console.error("Error!", error.message));
-                          }
-                        });
-                      </script>
                     </div>
+                    <div class="form-contact">
+                      <form method="post" name="formName" id="formName" class="contact-form">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="single-input">
+                              <i class="fas fa-user"></i>
+                              <input type="text" id="name" name="name" placeholder="ENTER YOUR NAME" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="single-input">
+                              <i class="fas fa-envelope"></i>
+                              <input type="text"  id="company-name" name="company-name" placeholder="Company Name" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="single-input">
+                              <i class="fas fa-envelope"></i>
+                              <input type="text" id="email" name="email" placeholder="Email ID" required>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="single-input">
+                              <i class="fas fa-phone"></i>
+                              <input type="text" id="phone" name="phone" placeholder="Mobile Number" required>
+                            </div>
+                          </div>
+                        
+                          
+                          <div class="col-12">
+                            <div class="submit-input text-center">
+                              <!-- <button class="send_button"type="submit"> Submit </button> -->
+                              <input type="submit" name="submit" value="SUBMIT NOW">
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <script>
+                      const scriptURL = "https://script.google.com/macros/s/AKfycbycXMbtRrs9c0dgxhuX-gS83qH3f7z_KclDfSD39Zqk4YIYl0M9CBIwbD7PedKuvAQ5/exec";
+                      const form = document.forms["formName"];
+                      form.addEventListener("submit", (e) => {
+                        if (document.getElementById("name").value === null || document.getElementById("name").value === "" || document.getElementById("name").value === undefined || document.getElementById("company-name").value === null || document.getElementById("company-name").value === "" || document.getElementById("company-name").value === undefined || document.getElementById("email").value === null || document.getElementById("email").value === "" || document.getElementById("email").value === undefined || document.getElementById("phone").value === null || document.getElementById("phone").value === "" || document.getElementById("phone").value === undefined || document.getElementById("phone").value.length < 10) {
+                          console.log(username);
+                          console.log(companyName);
+                          console.log(email);
+                          console.log(phone);
+                          alert("Empty Values");
+                        } else {
+                          e.preventDefault();
+                          fetch(scriptURL, {
+                            method: "POST",
+                            body: new FormData(form),
+                          }).then((response) => alert("Thank you! your form is submitted successfully.")).then(() => {
+                            window.location.reload();
+                          }).catch((error) => console.error("Error!", error.message));
+                        }
+                      });
+                    </script>
                   </div>
                 </div>
-              </div>
+                <!-- / END CONTACT SECTION -->
+                </div>
             </div>
           </section>
-          <section class="my-5 py-5 home-info-bg">
-            <div class="bt-container py-5">
-              <h2 class="txtcenteralgin">More from Finofii</h2>
-              <div class="row my-5 morefino">
-                <div class="col-lg-6 demofinny">
-                  <div class="row">
-                    <div class="col-lg-6 ">
-                      <h3 class="cococo">Co-created community</h3>
-
-                    </div>
-                    <div class="col-lg-6">
-                      <img src="https://jupiter.money/assets/images/footer-astronauts.svg?v=2d17ec6562"/>
-
-                    </div>
-                    <div class="row">
-                      <p class="cocompany">We are building Finoii hand-in-hand with users like you. Envision the bank you would want to be a part of.</p>
-                    </div>
-                  </div>
-                  
-                  
-                </div>
-                <div class="col-lg-6 demofinny">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <h3 class="cococo">Demystifying your money</h3>
-
-                    </div>
-                    <div class="col-lg-6">
-                      <img src="https://jupiter.money/assets/images/finforall.svg?v=2d17ec6562"/>
-
-                    </div>
-                    <div class="row">
-                      <p class="cocompany">Fun filled insights from FinForAll by Finoii helps you make smarter financial decisons</p>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-          </section>
+         
           <a href="https://api.whatsapp.com/send?phone=+919311361888&text=I%20am%20interested%20in%20your%20service" class="whatsapp-float text-decoration-none" target="_blank">
             <i class="bi bi-whatsapp my-whatsapp-float"></i>
           </a>
