@@ -3265,7 +3265,7 @@
                           <div id="form-message-success" class="mb-4">
                             Your message was sent, thank you!
                           </div>
-                          <form method="post" name="formName" id="formName" class="contact-form">
+                          <form method="post" action="" name="formName" id="formName" class="contact-form">
                             <div class="row">
                               <div class="col-md-12">
                                 <div class="form-group">
@@ -3808,3 +3808,42 @@
   </body>
 </html>
 
+<?php  
+ 
+if(isset($_POST['submit'])) {
+ $mailto = "care@finofii.com";  //My email address
+ //getting customer data
+ $name = $_POST['name']; //getting customer name
+ $fromEmail = $_POST['email']; //getting customer email
+ $phone = $_POST['phone']; //getting customer Phome number
+ $company = $_POST['company-name']; //getting subject line from client
+ $subject = "Contact us Mail"; // For customer confirmation
+ 
+ //Email body I will receive
+ $message = "Cleint Name: " . $name . "\n"
+ . "Phone Number: " . $phone . "\n\n"
+ . "Email: " . $fromEmail . "\n\n"
+ . "Company Name: " . $company . "\n\n";
+ 
+ 
+ 
+ //Email headers
+ $headers = "From: " . $fromEmail; // Client email, I will receive
+ 
+ 
+ //PHP mailer function
+ 
+  $result1 = mail($mailto, $subject, $message, $headers); // This email sent to My address
+ 
+ 
+  //Checking if Mails sent successfully
+ 
+  if ($result1) {
+    $success = "Your Message was sent Successfully!";
+  } else {
+    $failed = "Sorry! Message was not sent, Try again Later.";
+  }
+ 
+}
+ 
+?>
