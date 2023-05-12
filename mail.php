@@ -11,7 +11,7 @@ $txt = "Cleint Name: " . $name . "\n"
  . "Phone Number: " . $phone . "\n\n"
  . "Email: " . $fromEmail . "\n\n"
  . "Company Name: " . $company . "\n\n";
-$headers = "From: fatehunleash@gmail.com" . "\r\n" .
+$headers = "From: care@finofii.com" . "\r\n" .
 "CC: devanshu@takniik.com";
 
 
