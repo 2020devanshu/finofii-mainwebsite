@@ -8,6 +8,22 @@
   text-align: center;
   padding: 20px 0 0 0;
 }
+.clear.foot {
+  display: flex !important;
+  justify-content: center !important;
+}
+#mc_embed_signup .mc-field-group label {
+  display: flex !important;
+  margin-bottom: 3px;
+  justify-content: center !important;
+  font-size: 15px !important;
+  font-weight: 500;
+}
+#mc_embed_signup .button {
+    
+  background-color: #0d6efd !important;
+ 
+}
 .form-control::placeholder {
   font-size: 15px;
   font-weight: 300;
