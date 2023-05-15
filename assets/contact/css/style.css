@@ -24,6 +24,9 @@
   background-color: #0d6efd !important;
  
 }
+div#mce-success-response {
+  text-align: center;
+}
 .form-control::placeholder {
   font-size: 15px;
   font-weight: 300;
