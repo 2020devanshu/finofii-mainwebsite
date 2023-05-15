@@ -4,6 +4,18 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+ .form-group.contactusbtn {
+  text-align: center;
+  padding: 20px 0 0 0;
+}
+.form-control::placeholder {
+  font-size: 15px;
+  font-weight: 300;
+}
+input.btn.btn-primary.submitbtncontact {
+  font-size: 15px;
+  font-weight: 300;
+}
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
